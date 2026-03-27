@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#0A0F1E"/>
+<title>Guardian X — Privacy Policy</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:#0A0F1E;color:#e0e0e0;line-height:1.8;padding:0 0 60px}
+  #lang-bar{background:#0D1B2A;padding:10px 16px;display:flex;
+    gap:8px;flex-wrap:wrap;border-bottom:1px solid #1A2A3A;
+    position:sticky;top:0;z-index:100}
+  .lb{background:#1A2A3A;color:#90CAF9;border:1px solid #2A3A4A;
+    border-radius:20px;padding:5px 14px;font-size:13px;cursor:pointer;
+    font-weight:600;transition:background .15s}
+  .lb.active{background:#1565C0;color:#fff;border-color:#1565C0}
+  .hdr{background:linear-gradient(135deg,#B71C1C,#7F0000);
+    padding:22px 20px 18px;display:flex;align-items:center;gap:14px}
+  .logo{width:50px;height:50px;background:#FF1744;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;font-weight:900;color:#fff;flex-shrink:0}
+  .hdr h1{font-size:22px;font-weight:800;color:#fff}
+  .hdr p{font-size:12px;color:rgba(255,255,255,.7);margin-top:2px}
+  .wrap{padding:20px 18px;max-width:720px;margin:0 auto}
+  .badge{display:inline-block;background:#1B5E20;color:#C8E6C9;
+    font-size:12px;font-weight:700;padding:4px 12px;
+    border-radius:20px;margin-bottom:20px}
+  h2{font-size:16px;font-weight:700;color:#4FC3F7;
+    margin:26px 0 8px;padding-bottom:6px;border-bottom:1px solid #1A2A3A}
+  p{font-size:14px;color:#c0c0c0;margin-bottom:10px}
+  ul{margin:0 0 12px 20px}
+  li{font-size:14px;color:#c0c0c0;margin-bottom:6px}
+  b{color:#e0e0e0}
+  a{color:#4FC3F7}
+  .foot{text-align:center;font-size:11px;color:#4A6070;
+    margin-top:40px;padding-top:16px;border-top:1px solid #1A2A3A}
+  .sec{display:none}
+  .sec.on{display:block}
+  /* RTL for Arabic */
+  .rtl{direction:rtl;text-align:right}
+  .rtl ul{margin:0 20px 12px 0}
+</style>
+</head>
+<body>
+
+<div id="lang-bar">
+  <button class="lb active" onclick="setLang('en',this)">🇬🇧 English</button>
+  <button class="lb" onclick="setLang('ml',this)">🇮🇳 മലയാളം</button>
+  <button class="lb" onclick="setLang('hi',this)">🇮🇳 हिन्दी</button>
+  <button class="lb" onclick="setLang('ar',this)">🇸🇦 العربية</button>
+</div>
+
+<div class="hdr">
+  <div class="logo">GX</div>
+  <div>
+    <h1>Guardian X</h1>
+    <p id="hdr-sub">Emergency SOS — Privacy Policy</p>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="badge" id="badge">✅ No data sold. No tracking. Privacy first.</div>
+
+<!-- ═══════════════════════ ENGLISH ═══════════════════════ -->
+<div id="sec-en" class="sec on">
+
+<h2>1. What We Collect</h2>
+<p>Guardian X collects only what is necessary to provide emergency safety features:</p>
+<ul>
+  <li><b>Location (GPS)</b> — collected only when SOS is triggered or live tracking is active. Never silently collected in the background.</li>
+  <li><b>Emergency contacts</b> — names and phone numbers you enter manually. Stored only on your device, never on our servers.</li>
+  <li><b>Device sensors</b> — accelerometer (shake-to-SOS detection) and compass/magnetometer (compass feature). Values are processed locally and never transmitted.</li>
+  <li><b>Anonymous ad data</b> — Google AdMob collects anonymous ad interaction data per its own privacy policy.</li>
+</ul>
+
+<h2>2. What We Do NOT Collect</h2>
+<ul>
+  <li>We do not collect your name, email address, or account information</li>
+  <li>We do not store your location on any server</li>
+  <li>We do not read your SMS history, call logs, or phone contacts beyond what you manually enter in the app</li>
+  <li>We do not sell any data to any third party, ever</li>
+  <li>We do not track you across other apps or websites</li>
+</ul>
+
+<h2>3. How We Use Your Location</h2>
+<p>Location is used exclusively to:</p>
+<ul>
+  <li>Include your GPS coordinates in emergency SOS messages sent via SMS to your chosen contacts</li>
+  <li>Generate a live tracking link (Ultra Pro feature) shared only with your emergency contacts when SOS is triggered</li>
+  <li>Detect your country automatically to display the correct local emergency service numbers</li>
+</ul>
+<p><b>Location is never uploaded to our servers.</b> The live tracking link encodes your coordinates directly in the URL — no backend database stores this information. When your contact opens the link, their browser calculates distance locally using OpenStreetMap.</p>
+
+<h2>4. Live Tracker Feature (Ultra Pro)</h2>
+<p>When SOS is triggered with live tracking enabled, a URL is generated containing your GPS coordinates, name, and phone number. This URL is sent via SMS to your emergency contacts only. No server stores this data. The web page uses OpenStreetMap — no Google Maps API key or account is required from the helper.</p>
+
+<h2>5. App Permissions — Why We Need Them</h2>
+<ul>
+  <li><b>SEND_SMS</b> — to send emergency SOS alerts to your contacts automatically</li>
+  <li><b>CALL_PHONE</b> — to directly call emergency contacts and services without the dialler</li>
+  <li><b>ACCESS_FINE_LOCATION</b> — to include GPS coordinates in SOS messages</li>
+  <li><b>FOREGROUND_SERVICE</b> — to keep shake-to-SOS active when the app is in the background or screen is off</li>
+  <li><b>RECEIVE_BOOT_COMPLETED</b> — to restart shake monitoring after your phone reboots</li>
+  <li><b>CAMERA</b> — to activate the flashlight SOS strobe signal</li>
+  <li><b>VIBRATE</b> — for SOS vibration pattern and Morse code signal</li>
+  <li><b>READ_CONTACTS</b> — only to let you pick contacts from your phonebook; the app does not copy or upload your contact list</li>
+</ul>
+
+<h2>6. Third-Party Services</h2>
+<ul>
+  <li><b>Google AdMob</b> — serves banner and rewarded video ads. See <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</li>
+  <li><b>Google Play Billing</b> — handles in-app purchases. No payment data is processed by Guardian X directly.</li>
+  <li><b>OpenStreetMap</b> — used in the live tracking web page to display maps. No personal data is shared with OpenStreetMap.</li>
+</ul>
+
+<h2>7. Data Storage and Retention</h2>
+<p>All data (emergency contacts, app settings, notepad content) is stored only on your device using Android SharedPreferences and local storage. Uninstalling the app permanently deletes all local data. We retain nothing on servers because Guardian X has no backend servers.</p>
+
+<h2>8. Children's Privacy</h2>
+<p>Guardian X is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
+
+<h2>9. Your Rights</h2>
+<p>You can delete all app data at any time: <b>Android Settings → Apps → Guardian X → Storage → Clear Data.</b><br>
+You can revoke any permission at any time: <b>Android Settings → Apps → Guardian X → Permissions.</b></p>
+
+<h2>10. Changes to This Policy</h2>
+<p>We may update this privacy policy. The latest version will always be available at this URL. Continued use of the app after changes constitutes your acceptance of the updated policy.</p>
+
+<h2>11. Contact Us</h2>
+<p>For privacy questions or data requests: <a href="mailto:mzndigital@gmail.com">mzndigital@gmail.com</a></p>
+
+</div>
+
+<!-- ═══════════════════════ MALAYALAM ═══════════════════════ -->
+<div id="sec-ml" class="sec">
+
+<h2>1. ഞങ്ങൾ ശേഖരിക്കുന്നത്</h2>
+<p>Guardian X അടിയന്തര സുരക്ഷാ സവിശേഷതകൾക്ക് ആവശ്യമായ ഡേറ്റ മാത്രം ശേഖരിക്കുന്നു:</p>
+<ul>
+  <li><b>ലൊക്കേഷൻ (GPS)</b> — SOS ട്രിഗർ ചെയ്യുമ്പോൾ മാത്രം. പശ്ചാത്തലത്തിൽ ഒരിക്കലും ശേഖരിക്കില്ല.</li>
+  <li><b>അടിയന്തര കോൺടാക്റ്റുകൾ</b> — നിങ്ങൾ നൽകുന്ന പേരുകളും ഫോൺ നമ്പറുകളും. ഉപകരണത്തിൽ മാത്രം സൂക്ഷിക്കുന്നു.</li>
+  <li><b>ഉപകരണ സെൻസറുകൾ</b> — ആക്സിലറോമീറ്റർ (ഷേക്ക്), കോമ്പസ്. ഒരിക്കലും അയക്കില്ല.</li>
+  <li><b>പരസ്യ ഡേറ്റ</b> — Google AdMob അജ്ഞാത പരസ്യ ഡേറ്റ ശേഖരിക്കുന്നു.</li>
+</ul>
+
+<h2>2. ഞങ്ങൾ ശേഖരിക്കാത്തത്</h2>
+<ul>
+  <li>ഡേറ്റ ഒരിക്കലും വിൽക്കുന്നില്ല</li>
+  <li>ലൊക്കേഷൻ സെർവറിൽ സൂക്ഷിക്കുന്നില്ല</li>
+  <li>SMS, കോൾ ലോഗ്, ഫോൺ കോൺടാക്റ്റ് ലിസ്റ്റ് വായിക്കുന്നില്ല</li>
+  <li>മൂന്നാം കക്ഷിക്ക് ഡേറ്റ നൽകുന്നില്ല</li>
+</ul>
+
+<h2>3. ലൊക്കേഷൻ ഉപയോഗം</h2>
+<p>SOS SMS-ൽ GPS ഉൾപ്പെടുത്താനും രാജ്യ തിരിച്ചറിയലിനും മാത്രം ഉപയോഗിക്കുന്നു. ഡേറ്റ ഒരിക്കലും സെർവറിൽ അപ്‌ലോഡ് ചെയ്യില്ല. ലൈവ് ട്രാക്കർ ലിങ്ക് URL-ൽ നേരിട്ട് കോർഡിനേറ്റ് ഉൾപ്പെടുത്തുന്നു — ഡേറ്റ ഒരു ഡേറ്റാബേസിലും ശേഖരിക്കുന്നില്ല.</p>
+
+<h2>4. ആപ്പ് അനുമതികൾ</h2>
+<ul>
+  <li><b>SEND_SMS</b> — SOS അലേർട്ടുകൾ അയക്കാൻ</li>
+  <li><b>CALL_PHONE</b> — നേരിട്ട് വിളിക്കാൻ</li>
+  <li><b>ACCESS_FINE_LOCATION</b> — GPS ഉൾപ്പെടുത്താൻ</li>
+  <li><b>FOREGROUND_SERVICE</b> — പശ്ചാത്തലത്തിൽ ഷേക്ക് SOS</li>
+  <li><b>CAMERA</b> — ഫ്ലാഷ്‌ലൈറ്റ് SOS</li>
+</ul>
+
+<h2>5. ഡേറ്റ ഡിലീറ്റ് ചെയ്യാൻ</h2>
+<p>Settings → Apps → Guardian X → Storage → Clear Data ഉപയോഗിച്ച് എല്ലാ ഡേറ്റയും ഡിലീറ്റ് ചെയ്യാം.</p>
+
+<h2>6. ബന്ധപ്പെടുക</h2>
+<p><a href="mailto:mzndigital@gmail.com">mzndigital@gmail.com</a></p>
+
+</div>
+
+<!-- ═══════════════════════ HINDI ═══════════════════════ -->
+<div id="sec-hi" class="sec">
+
+<h2>1. हम क्या एकत्र करते हैं</h2>
+<p>Guardian X केवल आपातकालीन सुरक्षा सुविधाओं के लिए आवश्यक डेटा एकत्र करता है:</p>
+<ul>
+  <li><b>स्थान (GPS)</b> — केवल SOS ट्रिगर होने पर। पृष्ठभूमि में कभी नहीं।</li>
+  <li><b>आपातकालीन संपर्क</b> — आपके द्वारा दर्ज नाम और फ़ोन नंबर। केवल डिवाइस पर संग्रहीत।</li>
+  <li><b>डिवाइस सेंसर</b> — एक्सेलेरोमीटर और कम्पास। कभी प्रेषित नहीं।</li>
+  <li><b>विज्ञापन डेटा</b> — Google AdMob अनाम विज्ञापन डेटा एकत्र करता है।</li>
+</ul>
+
+<h2>2. हम क्या एकत्र नहीं करते</h2>
+<ul>
+  <li>हम कोई डेटा नहीं बेचते</li>
+  <li>हम स्थान सर्वर पर संग्रहीत नहीं करते</li>
+  <li>हम SMS, कॉल लॉग या फ़ोन संपर्क सूची नहीं पढ़ते</li>
+  <li>हम किसी तृतीय पक्ष को डेटा नहीं देते</li>
+</ul>
+
+<h2>3. स्थान का उपयोग</h2>
+<p>SOS SMS में GPS निर्देशांक शामिल करने और देश पहचान के लिए केवल उपयोग किया जाता है। डेटा कभी सर्वर पर अपलोड नहीं होता। लाइव ट्रैकर लिंक URL में सीधे निर्देशांक एन्कोड करता है — किसी डेटाबेस में संग्रहीत नहीं।</p>
+
+<h2>4. ऐप अनुमतियाँ</h2>
+<ul>
+  <li><b>SEND_SMS</b> — SOS अलर्ट भेजने के लिए</li>
+  <li><b>CALL_PHONE</b> — सीधे कॉल करने के लिए</li>
+  <li><b>ACCESS_FINE_LOCATION</b> — GPS शामिल करने के लिए</li>
+  <li><b>FOREGROUND_SERVICE</b> — पृष्ठभूमि में शेक SOS</li>
+  <li><b>CAMERA</b> — फ्लैशलाइट SOS</li>
+</ul>
+
+<h2>5. डेटा हटाने के लिए</h2>
+<p>Settings → Apps → Guardian X → Storage → Clear Data से सभी डेटा हटाएं।</p>
+
+<h2>6. संपर्क</h2>
+<p><a href="mailto:mzndigital@gmail.com">mzndigital@gmail.com</a></p>
+
+</div>
+
+<!-- ═══════════════════════ ARABIC ═══════════════════════ -->
+<div id="sec-ar" class="sec rtl">
+
+<h2>١. ما الذي نجمعه</h2>
+<p>يجمع Guardian X فقط ما هو ضروري لتوفير ميزات السلامة في حالات الطوارئ:</p>
+<ul>
+  <li><b>الموقع (GPS)</b> — يُجمع فقط عند تفعيل SOS أو التتبع المباشر. لا يُجمع أبدًا في الخلفية دون علمك.</li>
+  <li><b>جهات الاتصال الطارئة</b> — الأسماء وأرقام الهاتف التي تدخلها يدويًا. مخزّنة على جهازك فقط.</li>
+  <li><b>حساسات الجهاز</b> — مقياس التسارع (كشف الاهتزاز) والبوصلة. تُعالج محليًا ولا تُرسل أبدًا.</li>
+  <li><b>بيانات الإعلانات</b> — تجمع Google AdMob بيانات تفاعل مجهولة وفقًا لسياسة الخصوصية الخاصة بها.</li>
+</ul>
+
+<h2>٢. ما الذي لا نجمعه</h2>
+<ul>
+  <li>لا نبيع أي بيانات لأي طرف ثالث إطلاقًا</li>
+  <li>لا نخزّن موقعك على أي خادم</li>
+  <li>لا نقرأ سجل الرسائل أو سجل المكالمات أو قائمة جهات الاتصال</li>
+  <li>لا نتتبعك عبر التطبيقات الأخرى</li>
+</ul>
+
+<h2>٣. كيف نستخدم موقعك</h2>
+<p>يُستخدم الموقع حصريًا لـ:</p>
+<ul>
+  <li>تضمين إحداثيات GPS في رسائل SOS الطارئة المرسلة عبر الرسائل القصيرة</li>
+  <li>إنشاء رابط تتبع مباشر (ميزة Ultra Pro) يُشارك فقط مع جهات الاتصال الطارئة</li>
+  <li>اكتشاف بلدك تلقائيًا لعرض أرقام الطوارئ المحلية الصحيحة</li>
+</ul>
+<p><b>لا يُرفع موقعك إلى خوادمنا أبدًا.</b> يُشفّر رابط التتبع المباشر إحداثياتك مباشرةً في عنوان URL — لا تخزّن قاعدة بيانات خلفية هذه المعلومات.</p>
+
+<h2>٤. أذونات التطبيق</h2>
+<ul>
+  <li><b>SEND_SMS</b> — لإرسال تنبيهات SOS الطارئة لجهات اتصالك</li>
+  <li><b>CALL_PHONE</b> — للاتصال المباشر بجهات الاتصال الطارئة والخدمات</li>
+  <li><b>ACCESS_FINE_LOCATION</b> — لتضمين GPS في رسائل الطوارئ</li>
+  <li><b>FOREGROUND_SERVICE</b> — للإبقاء على ميزة الاهتزاز لـSOS نشطةً في الخلفية</li>
+  <li><b>RECEIVE_BOOT_COMPLETED</b> — لإعادة تشغيل مراقبة الاهتزاز بعد إعادة تشغيل الهاتف</li>
+  <li><b>CAMERA</b> — لتفعيل إشارة SOS بالمصباح</li>
+  <li><b>VIBRATE</b> — لنمط اهتزاز SOS وإشارة مورس</li>
+</ul>
+
+<h2>٥. خدمات الطرف الثالث</h2>
+<ul>
+  <li><b>Google AdMob</b> — يعرض الإعلانات. راجع <a href="https://policies.google.com/privacy" target="_blank">سياسة خصوصية Google</a>.</li>
+  <li><b>Google Play Billing</b> — يتولى المشتريات داخل التطبيق.</li>
+  <li><b>OpenStreetMap</b> — يُستخدم في صفحة التتبع المباشر لعرض الخرائط.</li>
+</ul>
+
+<h2>٦. تخزين البيانات</h2>
+<p>تُخزَّن جميع البيانات (جهات الاتصال، الإعدادات، محتوى المفكرة) على جهازك فقط باستخدام Android SharedPreferences. إلغاء تثبيت التطبيق يحذف جميع البيانات المحلية نهائيًا. لا نحتفظ بشيء على الخوادم لأن Guardian X لا يمتلك خوادم خلفية.</p>
+
+<h2>٧. حقوقك</h2>
+<p>يمكنك حذف جميع بيانات التطبيق في أي وقت:<br>
+<b>الإعدادات ← التطبيقات ← Guardian X ← التخزين ← مسح البيانات</b></p>
+
+<h2>٨. التواصل معنا</h2>
+<p>لأسئلة الخصوصية: <a href="mailto:mzndigital@gmail.com">mzndigital@gmail.com</a></p>
+
+</div>
+
+<div class="foot">
+  Last updated: March 2026 &nbsp;·&nbsp; Guardian X by MZN Digital<br>
+  <a href="index.html">← Back to Live Tracker</a>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function setLang(lang, btn) {
+  document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.lb').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + lang).classList.add('on');
+  btn.classList.add('active');
+
+  const subs = {
+    en: 'Emergency SOS — Privacy Policy',
+    ml: 'എമർജൻസി SOS — സ്വകാര്യതാ നയം',
+    hi: 'आपातकालीन SOS — गोपनीयता नीति',
+    ar: 'طوارئ SOS — سياسة الخصوصية'
+  };
+  const badges = {
+    en: '✅ No data sold. No tracking. Privacy first.',
+    ml: '✅ ഡേറ്റ വിൽക്കുന്നില്ല. ട്രാക്കിംഗ് ഇല്ല.',
+    hi: '✅ कोई डेटा नहीं बेचा जाता। कोई ट्रैकिंग नहीं।',
+    ar: '✅ لا نبيع البيانات. لا تتبع. الخصوصية أولاً.'
+  };
+  document.getElementById('hdr-sub').textContent = subs[lang];
+  document.getElementById('badge').textContent = badges[lang];
+
+  // RTL for Arabic
+  document.querySelector('.wrap').style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+}
+
+// Auto-detect browser language
+const bl = navigator.language.toLowerCase().split('-')[0];
+const map = {ml:'ml', hi:'hi', ar:'ar', en:'en'};
+if (map[bl] && map[bl] !== 'en') {
+  const btn = document.querySelector('.lb[onclick*="' + map[bl] + '"]');
+  if (btn) btn.click();
+}
+</script>
+</body>
+</html>

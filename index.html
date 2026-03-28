@@ -9,61 +9,95 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     background:#0A0F1E;color:#fff;display:flex;flex-direction:column;
-    height:100vh;overflow:hidden;-webkit-font-smoothing:antialiased}
+    min-height:100vh;-webkit-font-smoothing:antialiased}
   #header{background:linear-gradient(135deg,#B71C1C,#7F0000);
     padding:10px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0}
   .sos-badge{background:#FF1744;border-radius:6px;padding:4px 10px;
-    font-weight:900;font-size:16px;letter-spacing:2px;flex-shrink:0;
+    font-weight:900;font-size:15px;letter-spacing:2px;flex-shrink:0;
     animation:pulse 1.2s ease-in-out infinite}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,23,68,.6)}
     70%{box-shadow:0 0 0 8px rgba(255,23,68,0)}}
   .info{flex:1;min-width:0}
-  .info h1{font-size:14px;font-weight:800;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .info p{font-size:10px;opacity:.6;margin-top:1px}
-  #map{flex:1;width:100%;min-height:0;position:relative}
+  .info h1{font-size:14px;font-weight:800;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap}
+  .info p{font-size:10px;opacity:.5;margin-top:1px}
+  #live-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;
+    flex-shrink:0;animation:livepulse 1.4s ease-in-out infinite}
+  @keyframes livepulse{0%,100%{opacity:1}50%{opacity:.3}}
+  #map{width:100%;height:260px;position:relative;flex-shrink:0}
+  #map iframe{width:100%;height:100%;border:none;display:block}
   #loading{position:absolute;inset:0;background:#0D1B2A;
     display:flex;flex-direction:column;align-items:center;
-    justify-content:center;z-index:999}
-  .spin{width:36px;height:36px;border:3px solid #1A2A3A;
+    justify-content:center;z-index:10;gap:8px}
+  .spin{width:34px;height:34px;border:3px solid #1A2A3A;
     border-top:3px solid #4FC3F7;border-radius:50%;
     animation:spin .9s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  #loading p{margin-top:8px;font-size:12px;opacity:.5}
-  #panel{background:#0D1B2A;padding:10px 12px;display:flex;
-    flex-direction:column;gap:8px;flex-shrink:0;
-    border-top:1px solid #1A2A3A;overflow-y:auto;max-height:55vh}
-  .pcard{background:#1A0A0A;border:1.5px solid #C62828;
-    border-radius:10px;padding:10px 12px}
-  .nm{font-size:16px;font-weight:800;color:#EF5350}
-  .ph{font-size:12px;color:#FFCDD2;margin-top:2px}
-  .lc{font-size:11px;color:#90CAF9;margin-top:2px}
-  .tm{font-size:10px;opacity:.4;margin-top:3px}
+  #loading p{font-size:11px;opacity:.45}
+  #panel{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+  /* ── Victim card (red) ── */
+  .pcard{border-radius:10px;padding:12px 14px}
+  .pcard.victim{background:#1A0808;border:1.5px solid #C62828}
+  .pcard.helper-card{background:#080E1A;border:1.5px solid #1565C0}
+  .pc-row{display:flex;align-items:center;gap:10px}
+  .dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+  .dot.red{background:#EF5350;box-shadow:0 0 6px #EF535088}
+  .dot.blue{background:#42A5F5;box-shadow:0 0 6px #42A5F588}
+  .dot.green{background:#66BB6A;box-shadow:0 0 6px #66BB6A88}
+  .pc-info{flex:1;min-width:0}
+  .pc-name{font-size:16px;font-weight:800;color:#EF5350;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pc-name.blue{color:#42A5F5}
+  .pc-phone{font-size:12px;color:#FFCDD2;margin-top:2px}
+  .pc-addr{font-size:11px;color:#90CAF9;margin-top:2px}
+  .pc-time{font-size:10px;opacity:.4;margin-top:3px}
+  .pc-dist{font-size:11px;color:#4FC3F7;margin-top:3px}
+  /* ── Stats row ── */
   .stats{display:flex;gap:6px}
-  .stat{flex:1;background:#1A2A3A;border-radius:8px;
-    padding:8px 6px;text-align:center}
-  .slb{font-size:8px;text-transform:uppercase;
-    letter-spacing:.8px;opacity:.4;margin-bottom:2px}
-  .svl{font-size:18px;font-weight:800;color:#4FC3F7;line-height:1}
-  .sun{font-size:9px;opacity:.45;margin-top:2px}
+  .stat{flex:1;background:#1A2A3A;border-radius:8px;padding:8px 6px;text-align:center}
+  .slb{font-size:8px;text-transform:uppercase;letter-spacing:.8px;opacity:.4;margin-bottom:2px}
+  .svl{font-size:17px;font-weight:800;color:#4FC3F7;line-height:1}
+  .sun{font-size:9px;opacity:.4;margin-top:2px}
+  /* ── Buttons ── */
   .btn{width:100%;padding:12px;border-radius:10px;border:none;
     font-size:13px;font-weight:700;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;gap:8px}
-  .btn:active{opacity:.75}
+    display:flex;align-items:center;justify-content:center;gap:7px}
+  .btn:active{opacity:.75;transform:scale(.98)}
   .bcall{background:#1B5E20;color:#fff}
   .bshare{background:#0D47A1;color:#fff}
   .bcome{background:#4A148C;color:#fff}
   .bmap{background:#1A2A3A;color:#4FC3F7;border:1px solid #2A3A4A}
+  .btn-row{display:flex;gap:6px}
+  .btn-row .btn{flex:1}
+  /* ── Share form ── */
+  .share-form{background:#050F05;border:1px solid #2E7D32;
+    border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:7px}
+  .share-form .title{font-size:12px;font-weight:700;color:#81C784}
+  .share-form input{background:#0D1B2A;border:1px solid #2A3A4A;
+    border-radius:7px;padding:8px 10px;color:#fff;font-size:12px;width:100%;
+    outline:none}
+  .share-form input:focus{border-color:#1565C0}
+  /* ── Status / error ── */
   #status{background:#0A200A;border:1px solid #2E7D32;border-radius:8px;
     padding:8px 10px;font-size:12px;color:#C8E6C9;display:none;line-height:1.5}
   #errmsg{background:#1A0A0A;border:1px solid #B71C1C;border-radius:8px;
     padding:8px 10px;font-size:11px;color:#FFCDD2;display:none;text-align:center}
-  .foot{text-align:center;font-size:10px;opacity:.2;padding:5px;flex-shrink:0}
+  /* ── Tier warning ── */
+  .tier-warn{background:#1A0A0A;border:1px solid #B71C1C;border-radius:8px;
+    padding:8px 10px;font-size:11px;color:#FFCDD2;display:none;text-align:center}
+  /* ── Install nudge ── */
+  .install-nudge{background:#0A0A1A;border:1px solid #1A2A3A;
+    border-radius:8px;padding:8px 10px;font-size:11px;
+    color:#90CAF9;text-align:center;line-height:1.6}
+  .install-nudge a{color:#4FC3F7;text-decoration:none;font-weight:700}
+  .foot{text-align:center;font-size:10px;opacity:.2;padding:6px}
   .foot a{color:#4A6070}
-  /* Google Maps marker label */
-  .gx-label{background:#D32F2F;color:#fff;font-size:10px;font-weight:800;
-    padding:2px 6px;border-radius:4px;white-space:nowrap;
-    position:absolute;top:-24px;left:50%;transform:translateX(-50%)}
+  /* ── Helpers section header ── */
+  .section-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;
+    opacity:.35;padding:2px 0}
+  /* ── Pulse ring around map marker ── */
+  .update-badge{background:#1B5E20;border-radius:20px;padding:2px 8px;
+    font-size:9px;color:#C8E6C9;font-weight:700;margin-left:auto}
 </style>
 </head>
 <body>
@@ -72,26 +106,43 @@
   <div class="sos-badge">SOS</div>
   <div class="info">
     <h1 id="h-title">Emergency Alert</h1>
-    <p>Guardian X • Live Location</p>
+    <p id="h-sub">Guardian X • Live Location</p>
   </div>
+  <div id="live-dot" style="display:none" title="Live session active"></div>
 </div>
 
 <div id="map">
   <div id="loading">
     <div class="spin"></div>
-    <p>Loading map...</p>
+    <p id="load-txt">Loading map...</p>
   </div>
 </div>
 
 <div id="panel">
-  <div class="pcard">
-    <div class="nm" id="pc-name">Loading...</div>
-    <div class="ph" id="pc-phone"></div>
-    <div class="lc" id="pc-loc"></div>
-    <div class="tm" id="pc-time"></div>
+
+  <!-- Victim card -->
+  <div class="pcard victim" id="victim-card" style="display:none">
+    <div class="pc-row">
+      <div class="dot red"></div>
+      <div class="pc-info">
+        <div class="pc-name" id="pc-name">Loading...</div>
+        <div class="pc-phone" id="pc-phone"></div>
+        <div class="pc-addr"  id="pc-addr"></div>
+        <div class="pc-time"  id="pc-time"></div>
+        <div class="pc-dist"  id="pc-dist"></div>
+      </div>
+      <div class="update-badge" id="live-badge" style="display:none">LIVE</div>
+    </div>
   </div>
 
-  <div class="stats">
+  <!-- Helpers list — filled dynamically -->
+  <div id="helpers-section" style="display:none">
+    <div class="section-lbl" id="helpers-lbl">Helpers on map</div>
+    <div id="helpers-list" style="display:flex;flex-direction:column;gap:4px;margin-top:4px"></div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats" id="stats-row" style="display:none">
     <div class="stat">
       <div class="slb">Distance</div>
       <div class="svl" id="s-dist">—</div>
@@ -103,37 +154,51 @@
       <div class="sun">minutes</div>
     </div>
     <div class="stat">
-      <div class="slb">GPS Acc.</div>
-      <div class="svl" id="s-acc">—</div>
-      <div class="sun">metres</div>
+      <div class="slb">Helpers</div>
+      <div class="svl" id="s-helpers">0</div>
+      <div class="sun">on map</div>
     </div>
   </div>
 
   <div id="errmsg"></div>
   <div id="status"></div>
+  <div class="tier-warn" id="tier-warn"></div>
 
-  <button class="btn bcall" id="btn-call" onclick="doCall()">
+  <!-- Share location form (only for Gist sessions) -->
+  <div class="share-form" id="share-form" style="display:none">
+    <div class="title">📍 Add yourself to the live map</div>
+    <input type="text" id="h-name"  placeholder="Your name (e.g. Priya)" maxlength="30"/>
+    <input type="tel"  id="h-phone" placeholder="Your phone number"       maxlength="15"/>
+    <button class="btn bshare" onclick="shareLocation()">📤 Join the Map</button>
+  </div>
+
+  <!-- Primary action buttons -->
+  <button class="btn bcall" id="btn-call" onclick="doCall()" style="display:none">
     📞 Call <span id="b-name">Now</span>
   </button>
-  <button class="btn bshare" onclick="doShare()">
-    📤 Send My Location to <span id="b-name2">Them</span>
-  </button>
-  <button class="btn bcome" onclick="doComing()">
-    🚗 I Am Coming to Help
-  </button>
-  <button class="btn bmap" id="btn-gmaps" onclick="openGoogleMaps()">
-    🗺 Open in Google Maps
-  </button>
+  <div class="btn-row">
+    <button class="btn bshare" onclick="doShare()">📤 Send My Location</button>
+    <button class="btn bcome"  onclick="doComing()">🚗 I Am Coming</button>
+  </div>
+  <button class="btn bmap" onclick="openGoogleMaps()">🗺 Open in Google Maps</button>
+
+  <!-- Install nudge -->
+  <div class="install-nudge">
+    Install <a href="https://play.google.com/store/apps/details?id=com.mzndigital.guardianxsos" target="_blank">Guardian X</a>
+    (free) to share your live location on this map and help faster
+  </div>
+
 </div>
 
-<div class="foot">
-  Guardian X &nbsp;·&nbsp;
-  <a href="privacy.html">Privacy</a>
-</div>
+<div class="foot">Guardian X &nbsp;·&nbsp; <a href="privacy.html">Privacy</a></div>
 
-<!-- Google Maps JS API — no API key needed for embed -->
 <script>
-const Q = new URLSearchParams(location.search);
+// ── URL params ─────────────────────────────────────────────────────────────
+const Q       = new URLSearchParams(location.search);
+const GIST_ID = Q.get('gist') || Q.get('session');
+const LIMIT   = parseInt(Q.get('limit') || '1');
+
+// Legacy fallback params
 const sLat  = parseFloat(Q.get('lat')  || '0');
 const sLng  = parseFloat(Q.get('lng')  || '0');
 const sName = decodeURIComponent(Q.get('name')  || 'Emergency');
@@ -141,152 +206,328 @@ const sPh   = decodeURIComponent(Q.get('phone') || '');
 const sTime = decodeURIComponent(Q.get('time')  || '');
 const sAddr = decodeURIComponent(Q.get('addr')  || '');
 
-document.title = sName + ' — Emergency SOS';
-document.getElementById('h-title').textContent   = '🆘 ' + sName + ' needs help!';
-document.getElementById('pc-name').textContent   = '🆘 ' + sName;
-document.getElementById('b-name').textContent    = sName;
-document.getElementById('b-name2').textContent   = sName;
-if (sPh)   document.getElementById('pc-phone').textContent = '📱 ' + sPh;
-if (sAddr) document.getElementById('pc-loc').textContent   = '📍 ' + sAddr;
-if (sTime) document.getElementById('pc-time').textContent  = '⏱ Sent at ' + sTime;
-if (!sPh)  document.getElementById('btn-call').style.display = 'none';
+const GIST_API   = 'https://api.github.com/gists/';
+const PLAY_URL   = 'https://play.google.com/store/apps/details?id=com.mzndigital.guardianxsos';
+const POLL_MS    = 5000;
 
-let gmap, sMarker, hMarker, myLat, myLng;
+let myLat, myLng, mapFrame = null, session = null, lastMapUrl = '';
 
-// Use Google Maps Embed API (no API key needed for basic embed)
-// Then add markers via Maps JavaScript API with no key needed for basic usage
-function initMap() {
-  if (sLat === 0 && sLng === 0) {
+// ── Boot ────────────────────────────────────────────────────────────────────
+if (GIST_ID) {
+  document.getElementById('live-dot').style.display = 'block';
+  document.getElementById('load-txt').textContent   = 'Loading live session...';
+  document.getElementById('share-form').style.display = 'flex';
+  fetchSession();
+  setInterval(fetchSession, POLL_MS);
+} else {
+  initLegacy();
+}
+
+// Get own location passively on load
+navigator.geolocation && navigator.geolocation.getCurrentPosition(
+  p => { myLat = p.coords.latitude; myLng = p.coords.longitude; updateDistStats(); },
+  () => {}, { enableHighAccuracy: true, timeout: 10000 }
+);
+
+// ── Gist session fetch & render ─────────────────────────────────────────────
+async function fetchSession() {
+  try {
+    const r = await fetch(GIST_API + GIST_ID, {
+      headers: { Accept: 'application/vnd.github.v3+json' }
+    });
+    if (!r.ok) { showErr('Session not found or expired. The SOS may have ended.'); return; }
+    const data  = await r.json();
+    const files = data.files;
+    const fname = Object.keys(files)[0];
+    session = JSON.parse(files[fname].content);
+    renderSession(fname);
+  } catch(e) {
+    showErr('Could not load session — check your internet connection.');
+  }
+}
+
+function renderSession(fname) {
+  if (!session) return;
+  const victim  = session.victim  || {};
+  const helpers = session.helpers || {};
+  const hArr    = Object.values(helpers);
+
+  // Header
+  document.getElementById('h-title').textContent = '🆘 ' + (victim.name || 'Emergency') + ' needs help!';
+  document.getElementById('h-sub').textContent   = 'Live session · Updated ' + (session.updated || '');
+  document.title = (victim.name || 'Emergency') + ' — Guardian X SOS';
+
+  // Victim card
+  document.getElementById('victim-card').style.display  = 'block';
+  document.getElementById('pc-name').textContent  = '🆘 ' + (victim.name  || 'Victim');
+  document.getElementById('live-badge').style.display = 'block';
+  if (victim.phone) {
+    document.getElementById('pc-phone').textContent = '📱 ' + victim.phone;
+    document.getElementById('btn-call').style.display = 'flex';
+    document.getElementById('b-name').textContent    = victim.name || 'them';
+  }
+  if (sAddr || victim.addr)
+    document.getElementById('pc-addr').textContent = '📍 ' + (sAddr || victim.addr);
+  document.getElementById('pc-time').textContent = victim.time ? 'SOS sent at ' + victim.time : '';
+
+  // Stats row
+  document.getElementById('stats-row').style.display  = 'flex';
+  document.getElementById('s-helpers').textContent = hArr.length;
+  updateDistStats(victim.lat, victim.lng);
+
+  // Helpers section
+  const hList = document.getElementById('helpers-list');
+  hList.innerHTML = '';
+  if (hArr.length > 0) {
+    document.getElementById('helpers-section').style.display = 'block';
+    document.getElementById('helpers-lbl').textContent =
+      hArr.length + ' helper' + (hArr.length > 1 ? 's' : '') + ' on the map';
+    hArr.forEach((h, i) => {
+      const d = (victim.lat && h.lat)
+        ? '<div class="pc-dist" style="color:#81C784">' + calcDist(victim.lat, victim.lng, h.lat, h.lng) + ' from victim</div>'
+        : '';
+      hList.innerHTML += `<div class="pcard helper-card">
+        <div class="pc-row">
+          <div class="dot blue"></div>
+          <div class="pc-info">
+            <div class="pc-name blue">🤝 ${h.name || 'Helper '+(i+1)}</div>
+            <div class="pc-time">Updated: ${h.time || '—'}</div>
+            ${d}
+          </div>
+        </div>
+      </div>`;
+    });
+  }
+
+  // Map — rebuild when locations change
+  buildMap(victim, hArr);
+}
+
+function buildMap(victim, hArr) {
+  let markers = '';
+  if (victim.lat && victim.lat !== 0) {
+    markers += `&markers=color:red%7Clabel:V%7C${victim.lat},${victim.lng}`;
+  }
+  hArr.forEach((h, i) => {
+    if (h.lat) markers += `&markers=color:blue%7Clabel:${i+1}%7C${h.lat},${h.lng}`;
+  });
+  if (myLat) markers += `&markers=color:green%7Clabel:Me%7C${myLat},${myLng}`;
+
+  // For interactive map use embed iframe (no API key needed)
+  const iframeUrl = (victim.lat && victim.lat !== 0)
+    ? `https://maps.google.com/maps?q=${victim.lat},${victim.lng}&z=14&output=embed&t=m`
+    : '';
+
+  if (iframeUrl && iframeUrl !== lastMapUrl) {
+    lastMapUrl = iframeUrl;
+    document.getElementById('loading').style.display = 'none';
+    if (!mapFrame) {
+      mapFrame = document.createElement('iframe');
+      mapFrame.style.cssText = 'width:100%;height:100%;border:none;display:block';
+      mapFrame.allow = 'geolocation';
+      document.getElementById('map').appendChild(mapFrame);
+    }
+    mapFrame.src = iframeUrl;
+  } else if (!iframeUrl) {
+    document.getElementById('load-txt').textContent = 'Waiting for victim GPS...';
+  }
+}
+
+// ── Legacy mode (no Gist) ────────────────────────────────────────────────────
+function initLegacy() {
+  if (sLat === 0) {
     document.getElementById('loading').innerHTML =
-      '<p style="color:#EF5350;padding:20px;text-align:center">⚠️ No location.<br>Call directly.</p>';
+      '<p style="color:#EF5350;padding:20px;text-align:center">No location in link.<br>Please call directly.</p>';
     return;
   }
+  document.getElementById('load-txt').textContent = 'Loading map...';
   document.getElementById('loading').style.display = 'none';
-  gmap = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: sLat, lng: sLng},
-    zoom: 16,
-    mapId: 'DEMO_MAP_ID',
-    mapTypeControl: false,
-    streetViewControl: false,
-    fullscreenControl: true,
-    gestureHandling: 'greedy',
-    styles: [
-      {elementType:'geometry',stylers:[{color:'#0A1520'}]},
-      {elementType:'labels.text.fill',stylers:[{color:'#8ec3b9'}]},
-      {elementType:'labels.text.stroke',stylers:[{color:'#1a3646'}]},
-      {featureType:'road',elementType:'geometry',stylers:[{color:'#1A2A3A'}]},
-      {featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#0A1520'}]},
-      {featureType:'road.highway',elementType:'geometry',stylers:[{color:'#0D2137'}]},
-      {featureType:'water',elementType:'geometry',stylers:[{color:'#0D1B2A'}]},
-      {featureType:'poi',elementType:'labels',stylers:[{visibility:'off'}]}
-    ]
-  });
 
-  // Sender marker — red pulsing dot
-  const senderDiv = document.createElement('div');
-  senderDiv.style.cssText = 'width:22px;height:22px;background:#D32F2F;' +
-    'border:3px solid #fff;border-radius:50%;' +
-    'box-shadow:0 0 0 8px rgba(211,47,47,.25)';
-  sMarker = new google.maps.marker.AdvancedMarkerElement({
-    position: {lat: sLat, lng: sLng},
-    map: gmap,
-    title: sName,
-    content: senderDiv
-  });
-  new google.maps.InfoWindow({content: '<b>🆘 ' + sName + '</b><br>Needs help here'})
-    .open(gmap, sMarker);
+  // Build map
+  mapFrame = document.createElement('iframe');
+  mapFrame.style.cssText = 'width:100%;height:100%;border:none;display:block';
+  mapFrame.src = `https://maps.google.com/maps?q=${sLat},${sLng}&z=16&output=embed&t=m`;
+  document.getElementById('map').appendChild(mapFrame);
+
+  // Victim card
+  document.getElementById('victim-card').style.display = 'block';
+  document.getElementById('pc-name').textContent  = '🆘 ' + sName;
+  if (sPh)   document.getElementById('pc-phone').textContent = '📱 ' + sPh;
+  if (sAddr) document.getElementById('pc-addr').textContent  = '📍 ' + sAddr;
+  if (sTime) document.getElementById('pc-time').textContent  = 'Sent at ' + sTime;
+  if (sPh) {
+    document.getElementById('btn-call').style.display = 'flex';
+    document.getElementById('b-name').textContent     = sName;
+  }
+  document.getElementById('stats-row').style.display = 'flex';
+  document.getElementById('h-title').textContent = '🆘 ' + sName + ' needs help!';
+  document.title = sName + ' — Guardian X SOS';
 }
 
-// Load Google Maps — using no-API-key mode (limited but functional for basic maps)
-function loadMaps() {
-  // Try Maps Embed API first (no key needed)
-  const iframe = document.createElement('iframe');
-  iframe.style.cssText = 'width:100%;height:100%;border:none';
-  iframe.src = 'https://maps.google.com/maps?q=' + sLat + ',' + sLng +
-    '&z=16&output=embed&t=m';
-  iframe.onload = function() {
-    document.getElementById('loading').style.display = 'none';
-  };
-  document.getElementById('map').appendChild(iframe);
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('btn-gmaps').style.display = 'flex';
+// ── Helper joins Gist session ────────────────────────────────────────────────
+function shareLocation() {
+  const name  = (document.getElementById('h-name').value  || '').trim();
+  const phone = (document.getElementById('h-phone').value || '').trim();
+  if (!name)  { showOk('Please enter your name.');         return; }
+  if (!phone) { showOk('Please enter your phone number.'); return; }
+  if (!GIST_ID) return;
+
+  navigator.geolocation.getCurrentPosition(pos => {
+    myLat = pos.coords.latitude; myLng = pos.coords.longitude;
+    const helperId = 'helper_' + phone.replace(/\D/g,'').slice(-6);
+    const timeStr  = new Date().toLocaleTimeString();
+
+    fetch(GIST_API + GIST_ID, { headers: { Accept: 'application/vnd.github.v3+json' } })
+      .then(r => r.json())
+      .then(data => {
+        const files = data.files;
+        const fname = Object.keys(files)[0];
+        const sess  = JSON.parse(files[fname].content);
+
+        // Check limit
+        const hKeys   = Object.keys(sess.helpers || {});
+        const already = hKeys.includes(helperId);
+        if (!already && hKeys.length >= LIMIT) {
+          document.getElementById('tier-warn').style.display = 'block';
+          document.getElementById('tier-warn').textContent =
+            'This map can show ' + LIMIT + ' helper' + (LIMIT > 1 ? 's' : '') +
+            '. Ask ' + (sess.victim?.name || 'the victim') + ' to upgrade Guardian X to add more.';
+          return;
+        }
+
+        if (!sess.helpers) sess.helpers = {};
+        sess.helpers[helperId] = { name, phone, lat: myLat, lng: myLng, ts: Date.now(), time: timeStr };
+        sess.updated = timeStr;
+
+        const patch = { files: {} };
+        patch.files[fname] = { content: JSON.stringify(sess, null, 2) };
+        return fetch(GIST_API + GIST_ID, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(patch)
+        });
+      })
+      .then(r => r && r.ok ? (
+        showOk('You are on the map! Your location updates automatically.'),
+        document.getElementById('share-form').style.display = 'none',
+        fetchSession(),
+        setInterval(() => refreshHelperPos(helperId, fname), 12000)
+      ) : null)
+      .catch(() => showErr('Could not join map. Try again.'));
+
+  }, () => showErr('Please allow location access to join the map.'),
+    { enableHighAccuracy: true, timeout: 10000 });
 }
 
-// Haversine distance
-function haversine(a,b,c,d){
-  const R=6371,r=Math.PI/180;
-  const dL=(c-a)*r,dG=(d-b)*r;
+function refreshHelperPos(helperId, fname) {
+  if (!myLat || !GIST_ID) return;
+  navigator.geolocation.getCurrentPosition(pos => {
+    myLat = pos.coords.latitude; myLng = pos.coords.longitude;
+    fetch(GIST_API + GIST_ID, { headers: { Accept: 'application/vnd.github.v3+json' } })
+      .then(r => r.json()).then(data => {
+        const files = data.files;
+        const fn    = Object.keys(files)[0];
+        const sess  = JSON.parse(files[fn].content);
+        if (sess.helpers?.[helperId]) {
+          sess.helpers[helperId].lat  = myLat;
+          sess.helpers[helperId].lng  = myLng;
+          sess.helpers[helperId].time = new Date().toLocaleTimeString();
+          sess.helpers[helperId].ts   = Date.now();
+          sess.updated = new Date().toLocaleTimeString();
+          const patch = { files: {} };
+          patch.files[fn] = { content: JSON.stringify(sess, null, 2) };
+          fetch(GIST_API + GIST_ID, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(patch)
+          }).catch(()=>{});
+        }
+      }).catch(()=>{});
+  }, ()=>{}, { enableHighAccuracy: true });
+}
+
+// ── Distance & stats ─────────────────────────────────────────────────────────
+function updateDistStats(vLat, vLng) {
+  const tLat = vLat || sLat;
+  const tLng = vLng || sLng;
+  if (!myLat || !tLat) return;
+  const d = haversine(myLat, myLng, tLat, tLng);
+  document.getElementById('s-dist').textContent = d < 1 ? Math.round(d*1000) : d.toFixed(1);
+  document.getElementById('s-dunit').textContent = d < 1 ? 'metres away' : 'km away';
+  document.getElementById('s-eta').textContent  = Math.max(1, Math.round(d/30*60));
+  if (vLat) document.getElementById('pc-dist').textContent = calcDist(myLat, myLng, tLat, tLng);
+}
+
+function haversine(a,b,c,d) {
+  const R=6371, r=Math.PI/180;
+  const dL=(c-a)*r, dG=(d-b)*r;
   const x=Math.sin(dL/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(dG/2)**2;
   return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
 }
 
-function getMe(cb) {
-  if (!navigator.geolocation) {
-    show_err('Location not supported. Call ' + sName + ' directly.');
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(p => {
-    myLat = p.coords.latitude; myLng = p.coords.longitude;
-    const acc = Math.round(p.coords.accuracy);
-    document.getElementById('s-acc').textContent = acc;
-    if (sLat !== 0) {
-      const d = haversine(myLat, myLng, sLat, sLng);
-      document.getElementById('s-dist').textContent = d < 1 ? Math.round(d*1000) : d.toFixed(1);
-      document.getElementById('s-dunit').textContent = d < 1 ? 'metres away' : 'km away';
-      const eta = Math.round(d/30*60);
-      document.getElementById('s-eta').textContent = eta < 1 ? '<1' : eta;
-    }
-    if (cb) cb();
-  }, e => {
-    const m = {1:'Access denied.',2:'Unavailable.',3:'Timed out.'};
-    show_err((m[e.code]||'Error.') + ' Call ' + sName + ' directly.');
-  }, {enableHighAccuracy:true,timeout:12000,maximumAge:0});
+function calcDist(a,b,c,d) {
+  const km = haversine(a,b,c,d);
+  return km < 1 ? Math.round(km*1000)+'m away' : km.toFixed(1)+'km away';
 }
 
-function show_err(t){const b=document.getElementById('errmsg');b.style.display='block';b.textContent='⚠️ '+t;}
-function show_ok(t){const b=document.getElementById('status');b.style.display='block';b.innerHTML=t;}
+// ── Action buttons ────────────────────────────────────────────────────────────
+function doCall() {
+  const ph = session?.victim?.phone || sPh;
+  if (ph) location.href = 'tel:' + ph.replace(/\s/g,'');
+}
 
-function doCall(){ if(sPh) location.href='tel:'+sPh.replace(/\s/g,''); }
-
-function openGoogleMaps(){
+function openGoogleMaps() {
+  const v = session?.victim;
+  const dest = (v?.lat) ? v.lat+','+v.lng : (sLat ? sLat+','+sLng : null);
+  if (!dest) return;
   const url = myLat
-    ? 'https://maps.google.com/maps/dir/' + myLat + ',' + myLng + '/' + sLat + ',' + sLng
-    : 'https://maps.google.com/?q=' + sLat + ',' + sLng;
-  window.open(url, '_blank');
+    ? 'https://maps.google.com/maps/dir/'+myLat+','+myLng+'/'+dest
+    : 'https://maps.google.com/?q='+dest;
+  window.open(url,'_blank');
 }
 
-function doShare(){
-  getMe(() => {
-    const link = 'https://maps.google.com/?q=' + myLat + ',' + myLng;
-    const msg  = '📍 I can see your SOS, ' + sName + '. My location:\n' + link + '\n\n— via Guardian X';
-    if (sPh) {
-      const n = sPh.replace(/[^0-9+]/g,'');
-      window.open('https://api.whatsapp.com/send?phone=' + n + '&text=' + encodeURIComponent(msg), '_blank');
+function doShare() {
+  getMyLocation(() => {
+    const link = 'https://maps.google.com/?q='+myLat+','+myLng;
+    const vName = session?.victim?.name || sName;
+    const vPh   = session?.victim?.phone || sPh;
+    const msg   = 'I can see your SOS, '+vName+'.\nMy location:\n'+link+'\n\n— via Guardian X';
+    if (vPh) {
+      const n = vPh.replace(/[^0-9+]/g,'');
+      window.open('https://api.whatsapp.com/send?phone='+n+'&text='+encodeURIComponent(msg),'_blank');
     }
-    show_ok('✅ <b>Location shared with ' + sName + '</b>.');
+    showOk('Location shared via WhatsApp.');
   });
 }
 
-function doComing(){
-  getMe(() => {
-    const link = 'https://maps.google.com/?q=' + myLat + ',' + myLng;
-    const msg  = '🚗 I AM COMING, ' + sName + '!\n\n📍 My location:\n' + link +
-      '\n\nStay calm — I will reach you.\n\n— via Guardian X';
-    if (sPh) location.href = 'sms:' + sPh.replace(/[^0-9+]/g,'') + '?body=' + encodeURIComponent(msg);
-    show_ok('✅ <b>Message sent to ' + sName + '.</b>');
+function doComing() {
+  getMyLocation(() => {
+    const link  = 'https://maps.google.com/?q='+myLat+','+myLng;
+    const vName = session?.victim?.name || sName;
+    const vPh   = session?.victim?.phone || sPh;
+    const msg   = 'I AM COMING, '+vName+'!\n\nMy location:\n'+link+'\n\nStay calm. — via Guardian X';
+    if (vPh) location.href = 'sms:'+vPh.replace(/[^0-9+]/g,'')+'?body='+encodeURIComponent(msg);
+    showOk('Message sent to '+vName+'.');
   });
 }
 
-// Auto-detect location on load
-getMe(null);
+function getMyLocation(cb) {
+  if (myLat) { cb(); return; }
+  navigator.geolocation?.getCurrentPosition(
+    p => { myLat=p.coords.latitude; myLng=p.coords.longitude; cb(); },
+    () => showErr('Allow location access and try again.'),
+    { enableHighAccuracy:true, timeout:8000 }
+  );
+}
 
-// Load map
-if (sLat !== 0 && sLng !== 0) {
-  loadMaps();
-} else {
-  document.getElementById('loading').innerHTML =
-    '<p style="color:#EF5350;padding:20px;text-align:center">⚠️ No location in link.<br>Please call directly.</p>';
-  document.getElementById('loading').style.display = 'flex';
+function showOk(t) {
+  const el=document.getElementById('status');
+  el.style.display='block'; el.style.borderColor='#2E7D32';
+  el.style.color='#C8E6C9'; el.textContent=t;
+}
+function showErr(t) {
+  const el=document.getElementById('errmsg');
+  el.style.display='block'; el.textContent='⚠️ '+t;
 }
 </script>
 </body>

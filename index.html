@@ -624,12 +624,37 @@ function doShare() {
 function doComing() {
   getMyLocation(()=>{
     const lat=session?.victim?.lat||sLat, lng=session?.victim?.lng||sLng;
-    const link=myLat?'https://maps.google.com/?q='+myLat+','+myLng:'';
-    const vName=session?.victim?.name||sName;
-    const vPh=session?.victim?.phone||sPh;
+    const link=myLat?'https://maps.google.com/?q='+myLat+','+myLng:'(location not available)';
+    const vName=session?.victim?.name||sName||'them';
+    const vPh=(session?.victim?.phone||sPh||'').replace(/[^0-9+]/g,'');
     const msg='🚗 I AM COMING, '+vName+'!\n\nMy location:\n'+link+'\n\nStay calm. — Guardian X';
-    if(vPh) location.href='sms:'+vPh.replace(/[^0-9+]/g,'')+'?body='+encodeURIComponent(msg);
-    else showOk('Copied — paste in WhatsApp or any chat.');
+    if(vPh){
+      // Try SMS deep link first
+      location.href='sms:'+vPh+'?body='+encodeURIComponent(msg);
+    } else {
+      // No phone number — copy to clipboard with clear instruction
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(msg).then(()=>{
+          showOk('✅ Message copied! Open WhatsApp or any chat and paste it.');
+        }).catch(()=>{
+          // Clipboard blocked — use textarea trick
+          const ta=document.createElement('textarea');
+          ta.value=msg; ta.style.position='fixed'; ta.style.opacity='0';
+          document.body.appendChild(ta); ta.focus(); ta.select();
+          try{ document.execCommand('copy'); showOk('✅ Copied! Paste in WhatsApp.'); }
+          catch(e){ showOk('Message: '+msg); }
+          document.body.removeChild(ta);
+        });
+      } else {
+        // Last resort
+        const ta=document.createElement('textarea');
+        ta.value=msg; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try{ document.execCommand('copy'); showOk('✅ Copied! Paste in WhatsApp.'); }
+        catch(e){ showOk('Message ready — please copy it:\n'+msg); }
+        document.body.removeChild(ta);
+      }
+    }
   });
 }
 
@@ -639,7 +664,7 @@ function getMyLocation(cb) {
   navigator.geolocation?.getCurrentPosition(
     p=>{document.getElementById('perm-banner').style.display='none';
         myLat=p.coords.latitude;myLng=p.coords.longitude;cb();},
-    err=>showErr(err.code===1?'Tap Allow when asked for location, then try again.':'GPS unavailable — go outdoors.'),
+    err=>showErr(err.code===1?'Location is blocked. In your browser: tap ⋮ menu → Settings → Site settings → Location → reset for this site, then try again.':'GPS unavailable — go outdoors and try again.'),
     {enableHighAccuracy:true,timeout:10000}
   );
 }

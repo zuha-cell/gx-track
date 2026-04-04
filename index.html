@@ -10,6 +10,8 @@
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     background:#0A0F1E;color:#fff;display:flex;flex-direction:column;
     min-height:100vh;-webkit-font-smoothing:antialiased}
+
+  /* ── Header ── */
   #header{background:linear-gradient(135deg,#B71C1C,#7F0000);
     padding:10px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0}
   .sos-badge{background:#FF1744;border-radius:6px;padding:4px 10px;
@@ -24,6 +26,8 @@
   #live-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;
     flex-shrink:0;animation:livepulse 1.4s ease-in-out infinite}
   @keyframes livepulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* ── Map ── */
   #map{width:100%;height:260px;position:relative;flex-shrink:0}
   #map iframe{width:100%;height:100%;border:none;display:block}
   #loading{position:absolute;inset:0;background:#0D1B2A;
@@ -34,70 +38,115 @@
     animation:spin .9s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
   #loading p{font-size:11px;opacity:.45}
+
+  /* ── Panel ── */
   #panel{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
-  /* ── Victim card (red) ── */
+
+  /* ── Cards ── */
   .pcard{border-radius:10px;padding:12px 14px}
   .pcard.victim{background:#1A0808;border:1.5px solid #C62828}
-  .pcard.helper-card{background:#080E1A;border:1.5px solid #1565C0}
-  .pc-row{display:flex;align-items:center;gap:10px}
-  .dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
-  .dot.red{background:#EF5350;box-shadow:0 0 6px #EF535088}
-  .dot.blue{background:#42A5F5;box-shadow:0 0 6px #42A5F588}
-  .dot.green{background:#66BB6A;box-shadow:0 0 6px #66BB6A88}
+
+  /* Helper colours — slot 1–5 */
+  .hc0{background:#080E1A;border:1.5px solid #1565C0}
+  .hc1{background:#0E0818;border:1.5px solid #6A1B9A}
+  .hc2{background:#081808;border:1.5px solid #1B5E20}
+  .hc3{background:#1A0E00;border:1.5px solid #E65100}
+  .hc4{background:#001A18;border:1.5px solid #00695C}
+
+  .dot-v{width:12px;height:12px;border-radius:50%;background:#EF5350;
+    box-shadow:0 0 8px #EF535088;flex-shrink:0}
+  .dot-h0{width:12px;height:12px;border-radius:50%;background:#1E88E5;
+    box-shadow:0 0 8px #1E88E588;flex-shrink:0}
+  .dot-h1{width:12px;height:12px;border-radius:50%;background:#8E24AA;
+    box-shadow:0 0 8px #8E24AA88;flex-shrink:0}
+  .dot-h2{width:12px;height:12px;border-radius:50%;background:#43A047;
+    box-shadow:0 0 8px #43A04788;flex-shrink:0}
+  .dot-h3{width:12px;height:12px;border-radius:50%;background:#F4511E;
+    box-shadow:0 0 8px #F4511E88;flex-shrink:0}
+  .dot-h4{width:12px;height:12px;border-radius:50%;background:#00897B;
+    box-shadow:0 0 8px #00897B88;flex-shrink:0}
+
+  .pc-row{display:flex;align-items:flex-start;gap:10px}
   .pc-info{flex:1;min-width:0}
-  .pc-name{font-size:16px;font-weight:800;color:#EF5350;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .pc-name.blue{color:#42A5F5}
-  .pc-phone{font-size:12px;color:#FFCDD2;margin-top:2px}
-  .pc-addr{font-size:11px;color:#90CAF9;margin-top:2px}
-  .pc-time{font-size:10px;opacity:.4;margin-top:3px}
-  .pc-dist{font-size:11px;color:#4FC3F7;margin-top:3px}
-  /* ── Stats row ── */
-  .stats{display:flex;gap:6px}
-  .stat{flex:1;background:#1A2A3A;border-radius:8px;padding:8px 6px;text-align:center}
-  .slb{font-size:8px;text-transform:uppercase;letter-spacing:.8px;opacity:.4;margin-bottom:2px}
-  .svl{font-size:17px;font-weight:800;color:#4FC3F7;line-height:1}
-  .sun{font-size:9px;opacity:.4;margin-top:2px}
+  .pc-name{font-size:14px;font-weight:800;margin-bottom:2px}
+  .red{color:#EF5350}
+  .col0{color:#1E88E5}.col1{color:#8E24AA}.col2{color:#43A047}
+  .col3{color:#F4511E}.col4{color:#00897B}
+  .pc-time{font-size:10px;opacity:.4}
+  .pc-dist{font-size:12px;font-weight:700;margin-top:3px}
+  .pc-dir{font-size:11px;opacity:.6;margin-top:1px}
+  .live-badge{background:#1B5E20;color:#A5D6A7;border-radius:4px;
+    padding:2px 7px;font-size:9px;font-weight:800;letter-spacing:1px;
+    display:none;align-self:flex-start;margin-left:auto}
+
+  /* ── Distance between helpers ── */
+  .dist-matrix{background:#0D1B2A;border-radius:8px;padding:10px 12px;
+    font-size:11px}
+  .dist-matrix-title{font-weight:700;font-size:11px;opacity:.5;
+    letter-spacing:.5px;margin-bottom:6px}
+  .dist-row{display:flex;justify-content:space-between;align-items:center;
+    padding:3px 0;border-bottom:1px solid #1A2A3A}
+  .dist-row:last-child{border-bottom:none}
+
+  /* ── Copy coords ── */
+  .copy-btn{background:#0D1B2A;border:1px solid #1A3050;border-radius:6px;
+    color:#4FC3F7;font-size:10px;padding:4px 10px;cursor:pointer;
+    margin-top:5px;display:inline-block;-webkit-tap-highlight-color:transparent}
+  .copy-btn:active{background:#1A3050}
+
+  /* ── Stats ── */
+  #stats-row{display:none;justify-content:space-around;
+    background:#0D1B2A;border-radius:8px;padding:8px 0}
+  .svc{display:flex;flex-direction:column;align-items:center;gap:1px}
+  .svl{font-size:18px;font-weight:900;color:#4FC3F7}
+  .svt{font-size:9px;opacity:.4;letter-spacing:.5px;text-transform:uppercase}
+
   /* ── Buttons ── */
-  .btn{width:100%;padding:12px;border-radius:10px;border:none;
-    font-size:13px;font-weight:700;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;gap:7px}
-  .btn:active{opacity:.75;transform:scale(.98)}
-  .bcall{background:#1B5E20;color:#fff}
-  .bshare{background:#0D47A1;color:#fff}
+  .btn{width:100%;padding:14px 16px;border-radius:12px;border:none;
+    font-size:15px;font-weight:800;cursor:pointer;letter-spacing:.3px;
+    -webkit-tap-highlight-color:transparent;transition:opacity .15s}
+  .btn:active{opacity:.75}
+  .bshare{background:#1565C0;color:#fff}
+  .bcall{background:#1B5E20;color:#fff;display:none;
+    align-items:center;justify-content:center;gap:6px}
   .bcome{background:#4A148C;color:#fff}
-  .bmap{background:#1A2A3A;color:#4FC3F7;border:1px solid #2A3A4A}
-  .btn-row{display:flex;gap:6px}
+  .bmap{background:#0D1B2A;color:#4FC3F7;border:1px solid #1565C0}
+  .btn-row{display:flex;gap:8px}
   .btn-row .btn{flex:1}
+  .tier-warn{display:none;background:#1A0808;border:1px solid #C62828;
+    border-radius:8px;padding:10px 12px;font-size:12px;color:#FFCDD2}
+
+  /* ── Ultra Pro gate ── */
+  .ultra-gate{background:#1A0A2E;border:1px solid #6A1B9A;border-radius:10px;
+    padding:12px 14px;text-align:center}
+
   /* ── Share form ── */
-  .share-form{background:#050F05;border:1px solid #2E7D32;
-    border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:7px}
-  .share-form .title{font-size:12px;font-weight:700;color:#81C784}
-  .share-form input{background:#0D1B2A;border:1px solid #2A3A4A;
-    border-radius:7px;padding:8px 10px;color:#fff;font-size:12px;width:100%;
-    outline:none}
-  .share-form input:focus{border-color:#1565C0}
-  /* ── Status / error ── */
-  #status{background:#0A200A;border:1px solid #2E7D32;border-radius:8px;
-    padding:8px 10px;font-size:12px;color:#C8E6C9;display:none;line-height:1.5}
-  #errmsg{background:#1A0A0A;border:1px solid #B71C1C;border-radius:8px;
-    padding:8px 10px;font-size:11px;color:#FFCDD2;display:none;text-align:center}
-  /* ── Tier warning ── */
-  .tier-warn{background:#1A0A0A;border:1px solid #B71C1C;border-radius:8px;
-    padding:8px 10px;font-size:11px;color:#FFCDD2;display:none;text-align:center}
-  /* ── Install nudge ── */
-  .install-nudge{background:#0A0A1A;border:1px solid #1A2A3A;
-    border-radius:8px;padding:8px 10px;font-size:11px;
-    color:#90CAF9;text-align:center;line-height:1.6}
-  .install-nudge a{color:#4FC3F7;text-decoration:none;font-weight:700}
-  .foot{text-align:center;font-size:10px;opacity:.2;padding:6px}
-  .foot a{color:#4A6070}
-  /* ── Helpers section header ── */
-  .section-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;
-    opacity:.35;padding:2px 0}
-  /* ── Pulse ring around map marker ── */
-  .update-badge{background:#1B5E20;border-radius:20px;padding:2px 8px;
-    font-size:9px;color:#C8E6C9;font-weight:700;margin-left:auto}
+  .share-form{background:#0D1B2A;border:1px solid #1565C0;border-radius:10px;
+    padding:12px;display:none;flex-direction:column;gap:8px}
+  .share-form .title{font-size:13px;font-weight:700}
+  .share-form input{background:#0A1828;border:1px solid #1A3050;
+    border-radius:8px;padding:10px 12px;color:#fff;font-size:14px;width:100%}
+  .share-form .note{font-size:10px;color:#aaa}
+
+  /* ── Location permission banner ── */
+  .perm-banner{background:#1A1000;border:1px solid #F57F17;border-radius:8px;
+    padding:10px 12px;font-size:12px;color:#FFE0B2;display:none}
+
+  /* ── Sections ── */
+  .section-lbl{font-size:10px;font-weight:800;letter-spacing:1px;
+    opacity:.4;text-transform:uppercase;padding:2px 0 2px 2px}
+  #helpers-section{display:none}
+
+  /* ── Messages ── */
+  #errmsg{display:none;background:#1A0808;border:1px solid #C62828;
+    border-radius:8px;padding:10px 12px;font-size:12px;color:#FFCDD2}
+  #status{display:none;background:#081808;border:1px solid #2E7D32;
+    border-radius:8px;padding:10px 12px;font-size:12px;color:#C8E6C9}
+
+  .install-nudge{font-size:11px;color:#aaa;text-align:center;padding:4px 0}
+  .install-nudge a{color:#4FC3F7;text-decoration:none}
+  .foot{text-align:center;font-size:10px;opacity:.3;padding:12px 0 16px}
+  .foot a{color:inherit}
 </style>
 </head>
 <body>
@@ -105,88 +154,95 @@
 <div id="header">
   <div class="sos-badge">SOS</div>
   <div class="info">
-    <h1 id="h-title">Emergency Alert</h1>
-    <p id="h-sub">Guardian X • Live Location</p>
+    <h1 id="h-title">Guardian X — Emergency Tracker</h1>
+    <p id="h-sub">Loading live session...</p>
   </div>
-  <div id="live-dot" style="display:none" title="Live session active"></div>
+  <div id="live-dot" style="display:none"></div>
 </div>
 
 <div id="map">
   <div id="loading">
     <div class="spin"></div>
-    <p id="load-txt">Loading map...</p>
+    <p id="load-txt">Loading location...</p>
   </div>
 </div>
 
 <div id="panel">
 
+  <div id="errmsg"></div>
+  <div id="status"></div>
+
+  <!-- Location permission nudge -->
+  <div class="perm-banner" id="perm-banner">
+    ⚠️ Tap <strong>Allow</strong> when your browser asks for location.
+    This lets you appear on the map so the victim can see you approaching.
+  </div>
+
+  <!-- Stats row -->
+  <div id="stats-row">
+    <div class="svc"><div class="svl" id="s-helpers">0</div><div class="svt">Helpers</div></div>
+    <div class="svc"><div class="svl" id="s-dist">—</div><div class="svt">To victim</div></div>
+    <div class="svc"><div class="svl" id="s-dir">—</div><div class="svt">Direction</div></div>
+  </div>
+
   <!-- Victim card -->
   <div class="pcard victim" id="victim-card" style="display:none">
     <div class="pc-row">
-      <div class="dot red"></div>
+      <div class="dot-v"></div>
       <div class="pc-info">
-        <div class="pc-name" id="pc-name">Loading...</div>
-        <div class="pc-phone" id="pc-phone"></div>
-        <div class="pc-addr"  id="pc-addr"></div>
-        <div class="pc-time"  id="pc-time"></div>
-        <div class="pc-dist"  id="pc-dist"></div>
+        <div class="pc-name red" id="pc-name">Victim</div>
+        <div id="pc-phone" style="font-size:12px;opacity:.6"></div>
+        <div id="pc-addr" style="font-size:11px;opacity:.4;margin-top:2px"></div>
+        <div class="pc-time" id="pc-time"></div>
+        <div class="pc-dist" id="v-dist-to-me" style="color:#EF9A9A"></div>
+        <!-- Copy coords for offline maps -->
+        <button class="copy-btn" id="copy-v-coords" onclick="copyCoords('victim')" style="display:none">
+          📋 Copy GPS for offline map
+        </button>
       </div>
-      <div class="update-badge" id="live-badge" style="display:none">LIVE</div>
+      <span class="live-badge" id="live-badge">LIVE</span>
     </div>
   </div>
 
-  <!-- Helpers list — filled dynamically -->
-  <div id="helpers-section" style="display:none">
-    <div class="section-lbl" id="helpers-lbl">Helpers on map</div>
-    <div id="helpers-list" style="display:flex;flex-direction:column;gap:4px;margin-top:4px"></div>
+  <!-- Helpers section -->
+  <div id="helpers-section">
+    <div class="section-lbl" id="helpers-lbl">Helpers</div>
+    <div id="helpers-list" style="display:flex;flex-direction:column;gap:6px"></div>
   </div>
 
-  <!-- Stats -->
-  <div class="stats" id="stats-row" style="display:none">
-    <div class="stat">
-      <div class="slb">Distance</div>
-      <div class="svl" id="s-dist">—</div>
-      <div class="sun" id="s-dunit">getting location</div>
-    </div>
-    <div class="stat">
-      <div class="slb">Drive Est.</div>
-      <div class="svl" id="s-eta">—</div>
-      <div class="sun">minutes</div>
-    </div>
-    <div class="stat">
-      <div class="slb">Helpers</div>
-      <div class="svl" id="s-helpers">0</div>
-      <div class="sun">on map</div>
-    </div>
+  <!-- Distance matrix between all parties -->
+  <div class="dist-matrix" id="dist-matrix" style="display:none">
+    <div class="dist-matrix-title">📏 DISTANCES BETWEEN EVERYONE</div>
+    <div id="dist-matrix-rows"></div>
   </div>
 
-  <div id="errmsg"></div>
-  <div id="status"></div>
+  <!-- Tier warning -->
   <div class="tier-warn" id="tier-warn"></div>
 
-  <!-- Share location form (only for Gist sessions) -->
-  <div class="share-form" id="share-form" style="display:none">
-    <div class="title">📍 Add yourself to the live map</div>
-    <input type="text" id="h-name"  placeholder="Your name (e.g. Priya)" maxlength="30"/>
-    <input type="tel"  id="h-phone" placeholder="Your phone number"       maxlength="15"/>
+  <!-- Share location form -->
+  <div class="share-form" id="share-form">
+    <div class="title">📍 Join the live map</div>
+    <input type="text" id="h-name"  placeholder="Your name" maxlength="30"/>
+    <input type="tel"  id="h-phone" placeholder="Your phone number" maxlength="15"/>
+    <div class="note" id="loc-note">Your browser will ask for location permission — tap Allow</div>
     <button class="btn bshare" onclick="shareLocation()">📍 Share My Location & Join Map</button>
-    <p style="font-size:12px;color:#aaa;margin:4px 0 0">Your browser will ask for location permission — tap Allow</p>
   </div>
 
-  <!-- Primary action buttons -->
-  <button class="btn bcall" id="btn-call" onclick="doCall()" style="display:none">
-    📞 Call <span id="b-name">Now</span>
+  <!-- Call victim -->
+  <button class="btn bcall" id="btn-call" onclick="doCall()">
+    📞 Call <span id="b-name">Victim</span>
   </button>
+
+  <!-- Actions -->
   <div class="btn-row">
-    <button class="btn bshare" onclick="doShare()">📍 Send My Location to Victim</button>
+    <button class="btn bshare" onclick="doShare()">📍 Send My Location</button>
     <button class="btn bcome"  onclick="doComing()">🚗 I Am Coming</button>
   </div>
   <button class="btn bmap" onclick="openGoogleMaps()">🗺 Open in Google Maps</button>
 
-  <!-- Install nudge -->
   <div class="install-nudge">
     Install <a href="https://play.google.com/store/apps/details?id=com.mzndigital.guardianxsos" target="_blank">Guardian X</a>
-    (free) to share your live location on this map and help faster
+    free — track and share location without needing this page
   </div>
 
 </div>
@@ -198,337 +254,412 @@
 const Q       = new URLSearchParams(location.search);
 const GIST_ID = Q.get('gist') || Q.get('session');
 const LIMIT   = parseInt(Q.get('limit') || '1');
+const sName   = Q.get('name')  || '';
+const sPh     = Q.get('phone') || '';
+const sLat    = parseFloat(Q.get('lat')  || '0');
+const sLng    = parseFloat(Q.get('lng')  || '0');
+const sAddr   = Q.get('addr') ? decodeURIComponent(Q.get('addr')) : '';
 
-// Legacy fallback params
-const sLat  = parseFloat(Q.get('lat')  || '0');
-const sLng  = parseFloat(Q.get('lng')  || '0');
-const sName = decodeURIComponent(Q.get('name')  || 'Emergency');
-const sPh   = decodeURIComponent(Q.get('phone') || '');
-const sTime = decodeURIComponent(Q.get('time')  || '');
-const sAddr = decodeURIComponent(Q.get('addr')  || '');
+// Cloudflare Worker proxy (no token needed in browser)
+const WORKER  = 'https://gx-track.muhammedzuhairmba.workers.dev';
 
-const GIST_API   = 'https://api.github.com/gists/';
-const PLAY_URL   = 'https://play.google.com/store/apps/details?id=com.mzndigital.guardianxsos';
-const POLL_MS    = 5000;
+// ── Helper colours matching app ──────────────────────────────────────────
+const H_COLORS = ['#1E88E5','#8E24AA','#43A047','#F4511E','#00897B'];
+const H_LABELS = ['blue','1E88E5','8E24AA','43A047','F4511E','00897B'];
 
-let myLat, myLng, mapFrame = null, session = null, lastMapUrl = '';
+let session    = null;
+let lastMapUrl = '';
+let mapFrame   = null;
+let myLat      = 0, myLng = 0;
+let myHelperId = '';
+let myHFname   = '';
 
-// ── Boot ────────────────────────────────────────────────────────────────────
-if (GIST_ID) {
-  document.getElementById('live-dot').style.display = 'block';
-  document.getElementById('load-txt').textContent   = 'Loading live session...';
-  document.getElementById('share-form').style.display = 'flex';
-  fetchSession();
-  setInterval(fetchSession, POLL_MS);
-} else {
-  initLegacy();
+// ── Haversine distance ─────────────────────────────────────────────────────
+function haversine(lat1,lon1,lat2,lon2) {
+  const R=6371, dLat=(lat2-lat1)*Math.PI/180, dLon=(lon2-lon1)*Math.PI/180;
+  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+  const d=R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+  return d<1 ? Math.round(d*1000)+'m' : d.toFixed(1)+'km';
 }
 
-// Get own location passively on load
-navigator.geolocation && navigator.geolocation.getCurrentPosition(
-  p => { myLat = p.coords.latitude; myLng = p.coords.longitude; updateDistStats(); },
-  () => {}, { enableHighAccuracy: true, timeout: 10000 }
-);
+function bearing(lat1,lon1,lat2,lon2) {
+  const dLon=(lon2-lon1)*Math.PI/180;
+  const y=Math.sin(dLon)*Math.cos(lat2*Math.PI/180);
+  const x=Math.cos(lat1*Math.PI/180)*Math.sin(lat2*Math.PI/180)-
+          Math.sin(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.cos(dLon);
+  const b=((Math.atan2(y,x)*180/Math.PI)+360)%360;
+  const dirs=['N','NE','E','SE','S','SW','W','NW'];
+  return dirs[Math.round(b/45)%8];
+}
 
-// ── Gist session fetch & render ─────────────────────────────────────────────
-async function fetchSession() {
-  try {
-    const r = await fetch(GIST_API + GIST_ID, {
-      headers: { Accept: 'application/vnd.github.v3+json' }
-    });
-    if (!r.ok) { showErr('Session not found or expired. The SOS may have ended.'); return; }
-    const data  = await r.json();
-    const files = data.files;
-    const fname = Object.keys(files)[0];
-    session = JSON.parse(files[fname].content);
-    renderSession(fname);
-  } catch(e) {
-    showErr('Could not load session — check your internet connection.');
+function bearingArrow(lat1,lon1,lat2,lon2) {
+  const dLon=(lon2-lon1)*Math.PI/180;
+  const y=Math.sin(dLon)*Math.cos(lat2*Math.PI/180);
+  const x=Math.cos(lat1*Math.PI/180)*Math.sin(lat2*Math.PI/180)-
+          Math.sin(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.cos(dLon);
+  const b=((Math.atan2(y,x)*180/Math.PI)+360)%360;
+  const arrows=['↑','↗','→','↘','↓','↙','←','↖'];
+  return arrows[Math.round(b/45)%8];
+}
+
+// ── Copy coordinates ────────────────────────────────────────────────────────
+function copyCoords(who) {
+  let lat,lng,name;
+  if(who==='victim'&&session){
+    lat=session.victim?.lat; lng=session.victim?.lng; name=session.victim?.name||'Victim';
+  } else {
+    const idx=parseInt(who);
+    const h=Object.values(session?.helpers||{})[idx];
+    lat=h?.lat; lng=h?.lng; name=h?.name||'Helper';
   }
+  if(!lat) return;
+  const txt=lat+', '+lng;
+  navigator.clipboard?.writeText(txt).then(()=>showOk('Copied: '+txt+'\nPaste in Google Maps, Maps.me, or any offline map app'))
+    .catch(()=>prompt('Copy these GPS coordinates (paste in offline map):', txt));
 }
 
+// ── Fetch session via Worker ───────────────────────────────────────────────
+async function fetchSession() {
+  if (!GIST_ID) return;
+  try {
+    const r = await fetch(WORKER, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'read', gistId:GIST_ID})
+    });
+    const data = await r.json();
+    const files = data.files;
+    if (!files) return;
+    const fname = Object.keys(files)[0];
+    if (fname) { session = JSON.parse(files[fname].content); myHFname = fname; renderSession(fname); }
+  } catch(e) { /* retry next poll */ }
+}
+
+// ── Render session ─────────────────────────────────────────────────────────
 function renderSession(fname) {
   if (!session) return;
   const victim  = session.victim  || {};
   const helpers = session.helpers || {};
   const hArr    = Object.values(helpers);
+  const hKeys   = Object.keys(helpers);
 
-  // Header
-  document.getElementById('h-title').textContent = '🆘 ' + (victim.name || 'Emergency') + ' needs help!';
-  document.getElementById('h-sub').textContent   = 'Live session · Updated ' + (session.updated || '');
-  document.title = (victim.name || 'Emergency') + ' — Guardian X SOS';
+  document.getElementById('h-title').textContent = '🆘 ' + (victim.name||'Emergency') + ' needs help!';
+  document.getElementById('h-sub').textContent   = 'Live · Updated ' + (session.updated||'');
+  document.getElementById('live-dot').style.display = 'block';
+  document.title = (victim.name||'Emergency') + ' — Guardian X SOS';
 
   // Victim card
-  document.getElementById('victim-card').style.display  = 'block';
-  document.getElementById('pc-name').textContent  = '🆘 ' + (victim.name  || 'Victim');
-  document.getElementById('live-badge').style.display = 'block';
+  document.getElementById('victim-card').style.display = 'block';
+  document.getElementById('pc-name').textContent = '🆘 ' + (victim.name||'Victim');
+  document.getElementById('live-badge').style.display = 'flex';
   if (victim.phone) {
     document.getElementById('pc-phone').textContent = '📱 ' + victim.phone;
     document.getElementById('btn-call').style.display = 'flex';
-    document.getElementById('b-name').textContent    = victim.name || 'them';
+    document.getElementById('b-name').textContent = victim.name||'them';
   }
-  if (sAddr || victim.addr)
-    document.getElementById('pc-addr').textContent = '📍 ' + (sAddr || victim.addr);
-  document.getElementById('pc-time').textContent = victim.time ? 'SOS sent at ' + victim.time : '';
+  if (sAddr||victim.addr)
+    document.getElementById('pc-addr').textContent = '📍 ' + (sAddr||victim.addr);
+  document.getElementById('pc-time').textContent = victim.time ? 'SOS at ' + victim.time : '';
 
-  // Stats row
-  document.getElementById('stats-row').style.display  = 'flex';
+  // Copy coords button
+  if (victim.lat && victim.lat !== 0) {
+    document.getElementById('copy-v-coords').style.display = 'inline-block';
+    if (myLat) {
+      document.getElementById('v-dist-to-me').textContent =
+        bearingArrow(myLat,myLng,victim.lat,victim.lng) + ' ' +
+        haversine(myLat,myLng,victim.lat,victim.lng) + ' from you · ' +
+        bearing(myLat,myLng,victim.lat,victim.lng);
+    }
+  }
+
+  // Stats
+  document.getElementById('stats-row').style.display = 'flex';
   document.getElementById('s-helpers').textContent = hArr.length;
-  updateDistStats(victim.lat, victim.lng);
+  if (myLat && victim.lat && victim.lat!==0) {
+    document.getElementById('s-dist').textContent = haversine(myLat,myLng,victim.lat,victim.lng);
+    document.getElementById('s-dir').textContent  =
+      bearingArrow(myLat,myLng,victim.lat,victim.lng)+' '+bearing(myLat,myLng,victim.lat,victim.lng);
+  }
 
-  // Helpers section
+  // Helpers list
   const hList = document.getElementById('helpers-list');
   hList.innerHTML = '';
   if (hArr.length > 0) {
     document.getElementById('helpers-section').style.display = 'block';
     document.getElementById('helpers-lbl').textContent =
-      hArr.length + ' helper' + (hArr.length > 1 ? 's' : '') + ' on the map';
+      hArr.length + ' helper' + (hArr.length>1?'s':'') + ' on map';
+
     hArr.forEach((h, i) => {
-      const d = (victim.lat && h.lat)
-        ? '<div class="pc-dist" style="color:#81C784">' + calcDist(victim.lat, victim.lng, h.lat, h.lng) + ' from victim</div>'
-        : '';
-      hList.innerHTML += `<div class="pcard helper-card">
+      const color  = H_COLORS[i % H_COLORS.length];
+      const cls    = 'hc' + (i % 5);
+      const dotCls = 'dot-h' + (i % 5);
+      const colCls = 'col' + (i % 5);
+
+      let dists = '';
+      // Distance from this helper to victim
+      if (victim.lat && victim.lat!==0 && h.lat) {
+        const dv = haversine(h.lat,h.lng,victim.lat,victim.lng);
+        const bv = bearingArrow(h.lat,h.lng,victim.lat,victim.lng)+' '+bearing(h.lat,h.lng,victim.lat,victim.lng);
+        dists += `<div class="pc-dist" style="color:#EF9A9A">${bv} ${dv} from victim</div>`;
+      }
+      // Distance from this helper to me
+      if (myLat && h.lat) {
+        const dm = haversine(h.lat,h.lng,myLat,myLng);
+        const bm = bearingArrow(h.lat,h.lng,myLat,myLng)+' '+bearing(h.lat,h.lng,myLat,myLng);
+        dists += `<div class="pc-dist" style="color:${color}">${bm} ${dm} from you</div>`;
+      }
+      // Distance to other helpers
+      hArr.forEach((h2,j) => {
+        if (j!==i && h.lat && h2.lat) {
+          const d2=haversine(h.lat,h.lng,h2.lat,h2.lng);
+          const b2=bearingArrow(h.lat,h.lng,h2.lat,h2.lng)+' '+bearing(h.lat,h.lng,h2.lat,h2.lng);
+          dists+=`<div class="pc-dir">${b2} ${d2} from ${h2.name||'Helper '+(j+1)}</div>`;
+        }
+      });
+
+      const copyBtn = h.lat
+        ? `<button class="copy-btn" onclick="copyCoords(${i})">📋 Copy GPS</button>` : '';
+
+      hList.innerHTML += `<div class="pcard ${cls}">
         <div class="pc-row">
-          <div class="dot blue"></div>
+          <div class="${dotCls}"></div>
           <div class="pc-info">
-            <div class="pc-name blue">🤝 ${h.name || 'Helper '+(i+1)}</div>
-            <div class="pc-time">Updated: ${h.time || '—'}</div>
-            ${d}
+            <div class="pc-name ${colCls}">🤝 ${h.name||'Helper '+(i+1)}</div>
+            <div class="pc-time">Updated: ${h.time||'—'}</div>
+            ${dists}${copyBtn}
           </div>
         </div>
       </div>`;
     });
   }
 
-  // Map — rebuild when locations change
+  // Distance matrix between all parties (victim + all helpers)
+  buildDistMatrix(victim, hArr);
+
+  // Show share form if not already joined
+  const alreadyJoined = myHelperId && hKeys.includes(myHelperId);
+  if (GIST_ID && !alreadyJoined) {
+    document.getElementById('share-form').style.display = 'flex';
+  }
+
   buildMap(victim, hArr);
 }
 
-function buildMap(victim, hArr) {
-  let markers = '';
-  if (victim.lat && victim.lat !== 0) {
-    markers += `&markers=color:red%7Clabel:V%7C${victim.lat},${victim.lng}`;
+// ── Distance matrix ─────────────────────────────────────────────────────────
+function buildDistMatrix(victim, hArr) {
+  const all = [];
+  if (victim.lat && victim.lat!==0) all.push({name:victim.name||'Victim',lat:victim.lat,lng:victim.lng,color:'#EF5350'});
+  hArr.forEach((h,i)=>{ if(h.lat) all.push({name:h.name||'Helper '+(i+1),lat:h.lat,lng:h.lng,color:H_COLORS[i%5]}); });
+  if(myLat&&!all.find(a=>a.name==='You')) all.push({name:'You',lat:myLat,lng:myLng,color:'#4CAF50'});
+
+  if(all.length<2){document.getElementById('dist-matrix').style.display='none';return;}
+  document.getElementById('dist-matrix').style.display='block';
+  const rows=document.getElementById('dist-matrix-rows');
+  rows.innerHTML='';
+  for(let i=0;i<all.length;i++){
+    for(let j=i+1;j<all.length;j++){
+      const d=haversine(all[i].lat,all[i].lng,all[j].lat,all[j].lng);
+      const arr=bearingArrow(all[i].lat,all[i].lng,all[j].lat,all[j].lng);
+      rows.innerHTML+=`<div class="dist-row">
+        <span><span style="color:${all[i].color}">${all[i].name}</span>
+        → <span style="color:${all[j].color}">${all[j].name}</span></span>
+        <span style="font-weight:700">${arr} ${d}</span>
+      </div>`;
+    }
   }
-  hArr.forEach((h, i) => {
-    if (h.lat) markers += `&markers=color:blue%7Clabel:${i+1}%7C${h.lat},${h.lng}`;
+}
+
+// ── Build map ───────────────────────────────────────────────────────────────
+function buildMap(victim, hArr) {
+  let markers='';
+  if(victim.lat&&victim.lat!==0)
+    markers+=`&markers=color:red%7Clabel:V%7C${victim.lat},${victim.lng}`;
+  hArr.forEach((h,i)=>{
+    if(h.lat) markers+=`&markers=color:0x${H_COLORS[i%5].slice(1)}%7Clabel:${i+1}%7C${h.lat},${h.lng}`;
   });
-  if (myLat) markers += `&markers=color:green%7Clabel:Me%7C${myLat},${myLng}`;
+  if(myLat) markers+=`&markers=color:green%7Clabel:Me%7C${myLat},${myLng}`;
 
-  // For interactive map use embed iframe (no API key needed)
-  const iframeUrl = (victim.lat && victim.lat !== 0)
-    ? `https://maps.google.com/maps?q=${victim.lat},${victim.lng}&z=14&output=embed&t=m`
-    : '';
-
-  if (iframeUrl && iframeUrl !== lastMapUrl) {
-    lastMapUrl = iframeUrl;
-    document.getElementById('loading').style.display = 'none';
-    if (!mapFrame) {
-      mapFrame = document.createElement('iframe');
-      mapFrame.style.cssText = 'width:100%;height:100%;border:none;display:block';
-      mapFrame.allow = 'geolocation';
+  const iframeUrl=(victim.lat&&victim.lat!==0)
+    ?`https://maps.google.com/maps?q=${victim.lat},${victim.lng}&z=14&output=embed&t=m`:'';;
+  if(iframeUrl&&iframeUrl!==lastMapUrl){
+    lastMapUrl=iframeUrl;
+    document.getElementById('loading').style.display='none';
+    if(!mapFrame){
+      mapFrame=document.createElement('iframe');
+      mapFrame.style.cssText='width:100%;height:100%;border:none;display:block';
+      mapFrame.allow='geolocation';
       document.getElementById('map').appendChild(mapFrame);
     }
-    mapFrame.src = iframeUrl;
-  } else if (!iframeUrl) {
-    document.getElementById('load-txt').textContent = 'Waiting for victim GPS...';
+    mapFrame.src=iframeUrl;
+  } else if(!iframeUrl){
+    document.getElementById('load-txt').textContent='Waiting for victim GPS...';
   }
 }
 
-// ── Legacy mode (no Gist) ────────────────────────────────────────────────────
+// ── Share my location ────────────────────────────────────────────────────────
+function shareLocation() {
+  const name  = (document.getElementById('h-name').value||'').trim();
+  const phone = (document.getElementById('h-phone').value||'').trim();
+  if(!name)  {showOk('Please enter your name.');  return;}
+  if(!phone) {showOk('Please enter your phone.'); return;}
+  if(!GIST_ID) return;
+
+  document.getElementById('perm-banner').style.display='block';
+  document.getElementById('loc-note').textContent='Getting your GPS — tap Allow if asked...';
+
+  navigator.geolocation.getCurrentPosition(pos=>{
+    document.getElementById('perm-banner').style.display='none';
+    myLat=pos.coords.latitude; myLng=pos.coords.longitude;
+    myHelperId='helper_'+phone.replace(/\D/g,'').slice(-6);
+    const timeStr=new Date().toLocaleTimeString();
+
+    fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'read',gistId:GIST_ID})})
+    .then(r=>r.json()).then(data=>{
+      const fname=Object.keys(data.files)[0];
+      const sess=JSON.parse(data.files[fname].content);
+      const hKeys=Object.keys(sess.helpers||{});
+      const already=hKeys.includes(myHelperId);
+      if(!already&&hKeys.length>=LIMIT){
+        document.getElementById('tier-warn').style.display='block';
+        document.getElementById('tier-warn').textContent=
+          'Map is full ('+LIMIT+' helper slot'+(LIMIT>1?'s':'')+').';
+        return;
+      }
+      if(!sess.helpers) sess.helpers={};
+      sess.helpers[myHelperId]={name,phone,lat:myLat,lng:myLng,ts:Date.now(),time:timeStr};
+      sess.updated=timeStr;
+      const patch={files:{}};
+      patch.files[fname]={content:JSON.stringify(sess,null,2)};
+      return fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({action:'update',gistId:GIST_ID,payload:patch})});
+    }).then(r=>{
+      if(r&&r.ok){
+        showOk('✅ You are on the map! Location updates every 15 seconds.');
+        document.getElementById('share-form').style.display='none';
+        fetchSession();
+        setInterval(()=>refreshPos(),15000);
+      }
+    }).catch(()=>showErr('Could not join map. Try again.'));
+  },
+  err=>showErr(err.code===1?'Tap Allow when asked for location, then tap Share again.':'GPS unavailable — go outdoors and try again.'),
+  {enableHighAccuracy:true,timeout:12000});
+}
+
+// ── Refresh helper position ─────────────────────────────────────────────────
+function refreshPos() {
+  if(!myLat||!GIST_ID||!myHelperId) return;
+  navigator.geolocation.getCurrentPosition(pos=>{
+    myLat=pos.coords.latitude; myLng=pos.coords.longitude;
+    fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'read',gistId:GIST_ID})})
+    .then(r=>r.json()).then(data=>{
+      const fname=Object.keys(data.files)[0];
+      const sess=JSON.parse(data.files[fname].content);
+      if(sess.helpers&&sess.helpers[myHelperId]){
+        sess.helpers[myHelperId].lat=myLat;
+        sess.helpers[myHelperId].lng=myLng;
+        sess.helpers[myHelperId].time=new Date().toLocaleTimeString();
+        sess.updated=sess.helpers[myHelperId].time;
+        const patch={files:{}}; patch.files[fname]={content:JSON.stringify(sess,null,2)};
+        return fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({action:'update',gistId:GIST_ID,payload:patch})});
+      }
+    }).then(()=>fetchSession()).catch(()=>{});
+  },()=>{},{enableHighAccuracy:true,timeout:8000});
+}
+
+// ── Legacy mode (no Gist, just lat/lng params) ───────────────────────────────
 function initLegacy() {
-  if (sLat === 0) {
-    document.getElementById('loading').innerHTML =
-      '<p style="color:#EF5350;padding:20px;text-align:center">No location in link.<br>Please call directly.</p>';
+  if(sLat===0){
+    document.getElementById('load-txt').textContent='No location data in this link.';
     return;
   }
-  document.getElementById('load-txt').textContent = 'Loading map...';
-  document.getElementById('loading').style.display = 'none';
-
-  // Build map
-  mapFrame = document.createElement('iframe');
-  mapFrame.style.cssText = 'width:100%;height:100%;border:none;display:block';
-  mapFrame.src = `https://maps.google.com/maps?q=${sLat},${sLng}&z=16&output=embed&t=m`;
-  document.getElementById('map').appendChild(mapFrame);
-
-  // Victim card
-  document.getElementById('victim-card').style.display = 'block';
-  document.getElementById('pc-name').textContent  = '🆘 ' + sName;
-  if (sPh)   document.getElementById('pc-phone').textContent = '📱 ' + sPh;
-  if (sAddr) document.getElementById('pc-addr').textContent  = '📍 ' + sAddr;
-  if (sTime) document.getElementById('pc-time').textContent  = 'Sent at ' + sTime;
-  if (sPh) {
-    document.getElementById('btn-call').style.display = 'flex';
-    document.getElementById('b-name').textContent     = sName;
+  document.getElementById('loading').style.display='none';
+  document.getElementById('victim-card').style.display='block';
+  document.getElementById('pc-name').textContent='🆘 '+(sName||'Emergency');
+  if(sAddr) document.getElementById('pc-addr').textContent='📍 '+sAddr;
+  if(sPh){
+    document.getElementById('pc-phone').textContent='📱 '+sPh;
+    document.getElementById('btn-call').style.display='flex';
+    document.getElementById('b-name').textContent=sName||'them';
   }
-  document.getElementById('stats-row').style.display = 'flex';
-  document.getElementById('h-title').textContent = '🆘 ' + sName + ' needs help!';
-  document.title = sName + ' — Guardian X SOS';
+  document.getElementById('copy-v-coords').style.display='inline-block';
+  document.getElementById('stats-row').style.display='flex';
+  if(!mapFrame){
+    document.getElementById('loading').style.display='none';
+    mapFrame=document.createElement('iframe');
+    mapFrame.style.cssText='width:100%;height:100%;border:none;display:block';
+    mapFrame.src=`https://maps.google.com/maps?q=${sLat},${sLng}&z=14&output=embed`;
+    document.getElementById('map').appendChild(mapFrame);
+  }
 }
 
-// ── Helper joins Gist session ────────────────────────────────────────────────
-function shareLocation() {
-  const name  = (document.getElementById('h-name').value  || '').trim();
-  const phone = (document.getElementById('h-phone').value || '').trim();
-  if (!name)  { showOk('Please enter your name.');         return; }
-  if (!phone) { showOk('Please enter your phone number.'); return; }
-  if (!GIST_ID) return;
-
-  navigator.geolocation.getCurrentPosition(pos => {
-    myLat = pos.coords.latitude; myLng = pos.coords.longitude;
-    const helperId = 'helper_' + phone.replace(/\D/g,'').slice(-6);
-    const timeStr  = new Date().toLocaleTimeString();
-
-    fetch(GIST_API + GIST_ID, { headers: { Accept: 'application/vnd.github.v3+json' } })
-      .then(r => r.json())
-      .then(data => {
-        const files = data.files;
-        const fname = Object.keys(files)[0];
-        const sess  = JSON.parse(files[fname].content);
-
-        // Check limit
-        const hKeys   = Object.keys(sess.helpers || {});
-        const already = hKeys.includes(helperId);
-        if (!already && hKeys.length >= LIMIT) {
-          document.getElementById('tier-warn').style.display = 'block';
-          document.getElementById('tier-warn').textContent =
-            'This map can show ' + LIMIT + ' helper' + (LIMIT > 1 ? 's' : '') +
-            '. Ask ' + (sess.victim?.name || 'the victim') + ' to upgrade Guardian X to add more.';
-          return;
-        }
-
-        if (!sess.helpers) sess.helpers = {};
-        sess.helpers[helperId] = { name, phone, lat: myLat, lng: myLng, ts: Date.now(), time: timeStr };
-        sess.updated = timeStr;
-
-        const patch = { files: {} };
-        patch.files[fname] = { content: JSON.stringify(sess, null, 2) };
-        return fetch(GIST_API + GIST_ID, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(patch)
-        });
-      })
-      .then(r => r && r.ok ? (
-        showOk('You are on the map! Your location updates automatically.'),
-        document.getElementById('share-form').style.display = 'none',
-        fetchSession(),
-        setInterval(() => refreshHelperPos(helperId, fname), 12000)
-      ) : null)
-      .catch(() => showErr('Could not join map. Try again.'));
-
-  }, err => showErr(err.code===1 ? 'Tap Allow when your browser asks for location, then tap Join again.' : 'GPS unavailable — go outdoors and try again.'),
-    { enableHighAccuracy: true, timeout: 12000 });
-}
-
-function refreshHelperPos(helperId, fname) {
-  if (!myLat || !GIST_ID) return;
-  navigator.geolocation.getCurrentPosition(pos => {
-    myLat = pos.coords.latitude; myLng = pos.coords.longitude;
-    fetch(GIST_API + GIST_ID, { headers: { Accept: 'application/vnd.github.v3+json' } })
-      .then(r => r.json()).then(data => {
-        const files = data.files;
-        const fn    = Object.keys(files)[0];
-        const sess  = JSON.parse(files[fn].content);
-        if (sess.helpers?.[helperId]) {
-          sess.helpers[helperId].lat  = myLat;
-          sess.helpers[helperId].lng  = myLng;
-          sess.helpers[helperId].time = new Date().toLocaleTimeString();
-          sess.helpers[helperId].ts   = Date.now();
-          sess.updated = new Date().toLocaleTimeString();
-          const patch = { files: {} };
-          patch.files[fn] = { content: JSON.stringify(sess, null, 2) };
-          fetch(GIST_API + GIST_ID, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(patch)
-          }).catch(()=>{});
-        }
-      }).catch(()=>{});
-  }, ()=>{}, { enableHighAccuracy: true });
-}
-
-// ── Distance & stats ─────────────────────────────────────────────────────────
-function updateDistStats(vLat, vLng) {
-  const tLat = vLat || sLat;
-  const tLng = vLng || sLng;
-  if (!myLat || !tLat) return;
-  const d = haversine(myLat, myLng, tLat, tLng);
-  document.getElementById('s-dist').textContent = d < 1 ? Math.round(d*1000) : d.toFixed(1);
-  document.getElementById('s-dunit').textContent = d < 1 ? 'metres away' : 'km away';
-  document.getElementById('s-eta').textContent  = Math.max(1, Math.round(d/30*60));
-  if (vLat) document.getElementById('pc-dist').textContent = calcDist(myLat, myLng, tLat, tLng);
-}
-
-function haversine(a,b,c,d) {
-  const R=6371, r=Math.PI/180;
-  const dL=(c-a)*r, dG=(d-b)*r;
-  const x=Math.sin(dL/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(dG/2)**2;
-  return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
-}
-
-function calcDist(a,b,c,d) {
-  const km = haversine(a,b,c,d);
-  return km < 1 ? Math.round(km*1000)+'m away' : km.toFixed(1)+'km away';
-}
-
-// ── Action buttons ────────────────────────────────────────────────────────────
+// ── Action buttons ──────────────────────────────────────────────────────────
 function doCall() {
-  const ph = session?.victim?.phone || sPh;
-  if (ph) location.href = 'tel:' + ph.replace(/\s/g,'');
+  const ph=(session?.victim?.phone||sPh).replace(/[^0-9+]/g,'');
+  if(ph) location.href='tel:'+ph;
 }
 
 function openGoogleMaps() {
-  const v = session?.victim;
-  const dest = (v?.lat) ? v.lat+','+v.lng : (sLat ? sLat+','+sLng : null);
-  if (!dest) return;
-  const url = myLat
-    ? 'https://maps.google.com/maps/dir/'+myLat+','+myLng+'/'+dest
-    : 'https://maps.google.com/?q='+dest;
+  const lat=session?.victim?.lat||sLat, lng=session?.victim?.lng||sLng;
+  if(!lat) return;
+  const url=myLat
+    ?`https://maps.google.com/maps/dir/${myLat},${myLng}/${lat},${lng}`
+    :`https://maps.google.com/?q=${lat},${lng}`;
   window.open(url,'_blank');
 }
 
 function doShare() {
-  getMyLocation(() => {
-    const link = 'https://maps.google.com/?q='+myLat+','+myLng;
-    const vName = session?.victim?.name || sName;
-    const vPh   = session?.victim?.phone || sPh;
-    const msg   = 'I can see your SOS, '+vName+'.\nMy location:\n'+link+'\n\n— via Guardian X';
-    if (vPh) {
-      const n = vPh.replace(/[^0-9+]/g,'');
-      window.open('https://api.whatsapp.com/send?phone='+n+'&text='+encodeURIComponent(msg),'_blank');
-    }
-    showOk('Location shared via WhatsApp.');
+  getMyLocation(()=>{
+    const lat=session?.victim?.lat||sLat, lng=session?.victim?.lng||sLng;
+    if(!lat) return;
+    const link='https://maps.google.com/?q='+myLat+','+myLng;
+    const vName=session?.victim?.name||sName;
+    const vPh=session?.victim?.phone||sPh;
+    const msg='📍 My location:\n'+link+'\n\nOn my way to help you, '+vName+'!\n— via Guardian X';
+    if(vPh) location.href='sms:'+vPh.replace(/[^0-9+]/g,'')+'?body='+encodeURIComponent(msg);
   });
 }
 
 function doComing() {
-  getMyLocation(() => {
-    const link  = 'https://maps.google.com/?q='+myLat+','+myLng;
-    const vName = session?.victim?.name || sName;
-    const vPh   = session?.victim?.phone || sPh;
-    const msg   = 'I AM COMING, '+vName+'!\n\nMy location:\n'+link+'\n\nStay calm. — via Guardian X';
-    if (vPh) location.href = 'sms:'+vPh.replace(/[^0-9+]/g,'')+'?body='+encodeURIComponent(msg);
-    showOk('Message sent to '+vName+'.');
+  getMyLocation(()=>{
+    const lat=session?.victim?.lat||sLat, lng=session?.victim?.lng||sLng;
+    const link=myLat?'https://maps.google.com/?q='+myLat+','+myLng:'';
+    const vName=session?.victim?.name||sName;
+    const vPh=session?.victim?.phone||sPh;
+    const msg='🚗 I AM COMING, '+vName+'!\n\nMy location:\n'+link+'\n\nStay calm. — Guardian X';
+    if(vPh) location.href='sms:'+vPh.replace(/[^0-9+]/g,'')+'?body='+encodeURIComponent(msg);
+    else showOk('Copied — paste in WhatsApp or any chat.');
   });
 }
 
 function getMyLocation(cb) {
-  if (myLat) { cb(); return; }
+  if(myLat){cb();return;}
+  document.getElementById('perm-banner').style.display='block';
   navigator.geolocation?.getCurrentPosition(
-    p => { myLat=p.coords.latitude; myLng=p.coords.longitude; cb(); },
-    err => showErr(err.code===1 ? 'Tap Allow in the location permission popup, then tap Share again.' : 'Could not get GPS. Go outdoors and try again.'),
-    { enableHighAccuracy:true, timeout:12000 }
+    p=>{document.getElementById('perm-banner').style.display='none';
+        myLat=p.coords.latitude;myLng=p.coords.longitude;cb();},
+    err=>showErr(err.code===1?'Tap Allow when asked for location, then try again.':'GPS unavailable — go outdoors.'),
+    {enableHighAccuracy:true,timeout:10000}
   );
 }
 
-function showOk(t) {
-  const el=document.getElementById('status');
-  el.style.display='block'; el.style.borderColor='#2E7D32';
-  el.style.color='#C8E6C9'; el.textContent=t;
+function updateDistStats(vLat,vLng) {
+  if(myLat&&vLat&&vLat!==0){
+    document.getElementById('s-dist').textContent=haversine(myLat,myLng,vLat,vLng);
+    document.getElementById('s-dir').textContent=bearingArrow(myLat,myLng,vLat,vLng)+' '+bearing(myLat,myLng,vLat,vLng);
+  }
 }
-function showErr(t) {
-  const el=document.getElementById('errmsg');
-  el.style.display='block'; el.textContent='⚠️ '+t;
+
+function showOk(t){const el=document.getElementById('status');el.style.display='block';el.textContent=t;}
+function showErr(t){const el=document.getElementById('errmsg');el.style.display='block';el.textContent='⚠️ '+t;}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+if(GIST_ID){
+  fetchSession();
+  setInterval(fetchSession,5000);
+} else {
+  initLegacy();
 }
 </script>
 </body>

@@ -5,79 +5,212 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Guardian X — About</title>
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:#0A0F1E;color:#ddd;max-width:680px;margin:0 auto;padding:24px 16px 48px;
-    line-height:1.7;font-size:15px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Noto Sans Arabic,sans-serif;
+    background:#0A0F1E;color:#ddd;max-width:680px;margin:0 auto;
+    padding:24px 16px 48px;line-height:1.75;font-size:15px}
   h1{color:#fff;font-size:24px;margin-bottom:4px}
-  h2{color:#4FC3F7;font-size:14px;font-weight:700;margin:22px 0 8px;
+  h2{color:#4FC3F7;font-size:13px;font-weight:700;margin:22px 0 8px;
     letter-spacing:.5px;text-transform:uppercase}
   p,li{color:#bbb;margin-bottom:8px}
   ul{padding-left:20px}
-  .tag{background:#1A2A3A;color:#4FC3F7;border-radius:4px;padding:2px 8px;
-    font-size:12px;font-weight:700;display:inline-block;margin:2px}
   .plan{background:#0D1B2A;border:1px solid #1A3050;border-radius:10px;
     padding:12px 16px;margin:8px 0}
-  .plan h3{color:#fff;font-size:14px;font-weight:700;margin-bottom:6px}
+  .plan h3{color:#fff;font-size:14px;font-weight:700;margin-bottom:4px}
   .plan p{font-size:13px;color:#888;margin:0}
   .price{color:#4CAF50;font-weight:700}
-  a{color:#4FC3F7}
-  .hero{text-align:center;padding:24px 0 8px}
-  .hero-sub{color:#555;font-size:13px;margin-top:4px}
+  a{color:#4FC3F7;text-decoration:none}
+  .hero{text-align:center;padding:24px 0 12px}
+  .hero-sub{color:#666;font-size:13px;margin-top:4px}
+
+  /* Language tabs */
+  .lang-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+  .lang-btn{background:#0D1B2A;border:1px solid #1A3050;border-radius:20px;
+    color:#aaa;font-size:12px;padding:5px 14px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;transition:all .15s}
+  .lang-btn.active{background:#1565C0;border-color:#1565C0;color:#fff;font-weight:700}
+
+  /* RTL for Arabic */
+  .rtl{direction:rtl;text-align:right}
+  .rtl ul{padding-right:20px;padding-left:0}
+
+  .section{display:none}
+  .section.active{display:block}
 </style>
 </head>
 <body>
+
 <div class="hero">
   <div style="font-size:48px">🛡️</div>
   <h1>Guardian X</h1>
-  <div class="hero-sub">Your always-on personal safety guardian</div>
+  <div class="hero-sub" id="hero-sub">Your always-on personal safety guardian</div>
 </div>
 
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('hi')">हिन्दी</button>
+  <button class="lang-btn" onclick="setLang('ml')">മലയാളം</button>
+  <button class="lang-btn" onclick="setLang('ar')">العربية</button>
+</div>
+
+<!-- ── ENGLISH ── -->
+<div class="section active" id="sec-en">
 <h2>What the App Does</h2>
-<p>Guardian X is a personal safety app designed for emergencies. One tap — or one shake — sends your GPS location to your emergency contacts, calls them, and activates a loud siren. No account needed. Works offline. Works in 168+ countries.</p>
+<p>Guardian X is a personal safety app for emergencies. One tap — or one shake — sends your GPS location to your emergency contacts, calls them, and activates a siren. No account needed. Works offline. Works in 168+ countries.</p>
 
 <h2>Core Features</h2>
 <ul>
   <li><strong>One-Tap SOS</strong> — calls your contact, sends GPS by SMS, activates siren and flash</li>
   <li><strong>Shake to SOS</strong> — shake 3 times to trigger even with screen locked</li>
-  <li><strong>Dead Man's Switch</strong> — set a check-in timer; if you miss it, SOS fires automatically</li>
-  <li><strong>Travel Mode</strong> — set arrival time; if you don't confirm safe arrival, SOS fires</li>
+  <li><strong>Dead Man's Switch</strong> — set a timer; if you miss check-in, SOS fires automatically</li>
+  <li><strong>Travel Mode</strong> — set arrival time; if you don't confirm arrival, SOS fires</li>
   <li><strong>Fake Call</strong> — simulate an incoming call to escape uncomfortable situations</li>
-  <li><strong>Compass</strong> — shows distance and direction to each saved contact in real time</li>
-  <li><strong>Ghost Mode</strong> — disguise the app as a Notepad so nobody knows it's installed</li>
-  <li><strong>Morse SOS</strong> — flash SOS in international Morse code with zero network</li>
-  <li><strong>Offline Navigation</strong> — paste a Google Maps link and a compass arrow guides you without internet</li>
+  <li><strong>Compass</strong> — distance and direction to each saved contact in real time</li>
+  <li><strong>Ghost Mode</strong> — disguise the app as a Notepad</li>
+  <li><strong>Morse SOS</strong> — flash SOS in Morse code with zero network</li>
+  <li><strong>Offline Navigation</strong> — compass arrow guides you without internet</li>
 </ul>
 
-<h2>Live Mutual Tracking</h2>
-<p>Ultra Pro users get live location sharing. When SOS fires, helpers receive a link showing the victim on a map. Helpers can share their own location back. Everyone sees everyone else updating in real time.</p>
+<h2>Plans</h2>
+<div class="plan"><h3>Free</h3><p>SOS, shake SOS, 3 contacts, all core features</p></div>
+<div class="plan"><h3>No Ads <span class="price">₹49</span></h3><p>All ads removed permanently. Contacts 2 & 3 unlocked.</p></div>
+<div class="plan"><h3>Safety Pro <span class="price">₹249</span></h3><p>No ads, 5 contacts, unlimited fake calls, custom siren.</p></div>
+<div class="plan"><h3>Ultra Pro <span class="price">₹499</span></h3><p>Everything + live mutual tracking for all helpers.</p></div>
 
 <h2>Privacy</h2>
-<p>No account. No server. Location goes directly from your phone to your contacts by SMS. Nothing stored by us. <a href="privacy.html">Full privacy policy →</a></p>
+<p>No account. No server. Location goes directly to your contacts by SMS. <a href="privacy.html">Full privacy policy →</a></p>
 
-<h2>Plans</h2>
-<div class="plan">
-  <h3>Free</h3>
-  <p>SOS, shake SOS, 3 contacts, fake call, dead man's switch, travel mode, morse SOS, compass, widgets</p>
-</div>
-<div class="plan">
-  <h3>No Ads <span class="price">₹49</span></h3>
-  <p>All ads removed permanently. Contacts 2 & 3 unlocked without watching ads.</p>
-</div>
-<div class="plan">
-  <h3>Safety Pro <span class="price">₹249</span></h3>
-  <p>No ads, 5 contacts, unlimited fake calls, custom siren sound.</p>
-</div>
-<div class="plan">
-  <h3>Ultra Pro <span class="price">₹499</span></h3>
-  <p>Everything plus live mutual tracking — all helpers visible on one shared real-time map.</p>
-</div>
-
-<h2>Developer</h2>
-<p>Made by MZN Digital, Kerala, India.<br>
-<a href="mailto:support@mzndigital.com">support@mzndigital.com</a></p>
-
-<p style="margin-top:24px;text-align:center">
-<a href="https://play.google.com/store/apps/details?id=com.mzndigital.guardianxsos">Download on Google Play →</a>
+<h2>Contact</h2>
+<p>Email: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>
+Developer: MZN Digital, Kerala, India</p>
+<p style="margin-top:16px;text-align:center">
+<a href="https://play.google.com/store/apps/details?id=com.mzndigital.guardianxsos">⬇ Download on Google Play</a>
 </p>
+</div>
+
+<!-- ── HINDI ── -->
+<div class="section" id="sec-hi">
+<h2>ऐप क्या करता है</h2>
+<p>Guardian X एक व्यक्तिगत सुरक्षा ऐप है। एक टैप — या एक झटका — आपकी GPS लोकेशन आपके संपर्कों को भेजता है, उन्हें कॉल करता है, और सायरन चालू करता है। कोई अकाउंट नहीं। ऑफलाइन काम करता है। 168+ देशों में।</p>
+
+<h2>मुख्य सुविधाएं</h2>
+<ul>
+  <li><strong>एक टैप SOS</strong> — कॉल, SMS में GPS, सायरन + फ्लैश</li>
+  <li><strong>हिलाएं और SOS</strong> — 3 बार हिलाएं, लॉक स्क्रीन पर भी काम</li>
+  <li><strong>Dead Man's Switch</strong> — टाइमर सेट करें; चेक-इन न करें तो SOS खुद चलता है</li>
+  <li><strong>ट्रैवल मोड</strong> — पहुंचने का समय सेट करें; न बताएं तो SOS चलता है</li>
+  <li><strong>नकली कॉल</strong> — असहज स्थिति से बाहर निकलने के लिए</li>
+  <li><strong>कम्पास</strong> — हर संपर्क की दूरी और दिशा</li>
+  <li><strong>गुप्त मोड</strong> — ऐप नोटपैड जैसा दिखता है</li>
+  <li><strong>मोर्स SOS</strong> — बिना नेटवर्क, फ्लैश से SOS</li>
+  <li><strong>ऑफलाइन नेविगेशन</strong> — बिना इंटरनेट रास्ता दिखाता है</li>
+</ul>
+
+<h2>प्लान्स</h2>
+<div class="plan"><h3>Free</h3><p>SOS, 3 संपर्क, सभी मुख्य सुविधाएं</p></div>
+<div class="plan"><h3>No Ads <span class="price">₹49</span></h3><p>सभी विज्ञापन हटें। संपर्क 2 & 3 अनलॉक।</p></div>
+<div class="plan"><h3>Safety Pro <span class="price">₹249</span></h3><p>5 संपर्क, असीमित नकली कॉल, कस्टम सायरन।</p></div>
+<div class="plan"><h3>Ultra Pro <span class="price">₹499</span></h3><p>सब कुछ + लाइव म्यूचुअल ट्रैकिंग।</p></div>
+
+<h2>गोपनीयता</h2>
+<p>कोई अकाउंट नहीं। कोई सर्वर नहीं। लोकेशन सीधे आपके संपर्कों को SMS से जाती है। <a href="privacy.html">पूरी नीति →</a></p>
+
+<h2>संपर्क</h2>
+<p>ईमेल: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>
+MZN Digital, Kerala, India</p>
+</div>
+
+<!-- ── MALAYALAM ── -->
+<div class="section" id="sec-ml">
+<h2>ആപ്പ് എന്ത് ചെയ്യുന്നു</h2>
+<p>Guardian X ഒരു വ്യക്തിഗത സുരക്ഷ ആപ്പ് ആണ്. ഒരു ടാപ്പ് — അല്ലെങ്കിൽ ഒരു കുലുക്കം — നിങ്ങളുടെ GPS ലൊക്കേഷൻ കോൺടാക്ടുകൾക്ക് SMS ആയി അയക്കുന്നു, വിളിക്കുന്നു, സൈറൺ ഓൺ ചെയ്യുന്നു. ലോഗിൻ ഇല്ല. ഓഫ്‌ലൈൻ ആയും പ്രവർത്തിക്കുന്നു. 168+ രാജ്യങ്ങളിൽ.</p>
+
+<h2>പ്രധാന ഫീച്ചറുകൾ</h2>
+<ul>
+  <li><strong>ഒരു ടാപ്പ് SOS</strong> — കോൾ, GPS SMS, സൈറൺ + ഫ്ലാഷ്</li>
+  <li><strong>ഫോൺ കുലുക്കി SOS</strong> — 3 തവണ കുലുക്കൂ, ലോക്ക് സ്ക്രീനിലും</li>
+  <li><strong>Dead Man's Switch</strong> — ടൈമർ സെറ്റ് ചെയ്യൂ; ചെക്ക്-ഇൻ ഇല്ലെങ്കിൽ SOS ഫയർ ആകും</li>
+  <li><strong>ട്രാവൽ മോഡ്</strong> — എത്തിച്ചേരൽ സമയം; കൺഫേം ഇല്ലെങ്കിൽ SOS</li>
+  <li><strong>വ്യാജ കോൾ</strong> — അസ്വസ്ഥ സ്ഥിതിയിൽ നിന്ന് രക്ഷ</li>
+  <li><strong>കോംപസ്</strong> — ഓരോ കോൺടാക്ടിലേക്കും ദൂരം, ദിശ</li>
+  <li><strong>ഗോസ്റ്റ് മോഡ്</strong> — ആപ്പ് നോട്ട്‌പാഡ് ആയി കാണുന്നു</li>
+  <li><strong>മോഴ്സ് SOS</strong> — നെറ്റ്‌വർക്ക് ഇല്ലാതെ ഫ്ലാഷ് SOS</li>
+  <li><strong>ഓഫ്‌ലൈൻ നാവിഗേഷൻ</strong> — ഇന്റർനെറ്റ് ഇല്ലാതെ വഴി കാണിക്കുന്നു</li>
+</ul>
+
+<h2>പ്ലാനുകൾ</h2>
+<div class="plan"><h3>Free</h3><p>SOS, 3 കോൺടാക്ട്, എല്ലാ അടിസ്ഥാന ഫീച്ചറുകൾ</p></div>
+<div class="plan"><h3>No Ads <span class="price">₹49</span></h3><p>എല്ലാ പരസ്യങ്ങൾ നീക്കം. കോൺടാക്ട് 2 & 3 അൺലോക്ക്.</p></div>
+<div class="plan"><h3>Safety Pro <span class="price">₹249</span></h3><p>5 കോൺടാക്ട്, അൺലിമിറ്റഡ് വ്യാജ കോൾ, കസ്റ്റം സൈറൺ.</p></div>
+<div class="plan"><h3>Ultra Pro <span class="price">₹499</span></h3><p>എല്ലാം + ലൈവ് മ്യൂച്വൽ ട്രാക്കിങ്.</p></div>
+
+<h2>സ്വകാര്യത</h2>
+<p>അക്കൗണ്ട് ഇല്ല. സർവർ ഇല്ല. ലൊക്കേഷൻ SMS വഴി കോൺടാക്ടുകൾക്ക് നേരിട്ട് പോകുന്നു. <a href="privacy.html">പൂർണ്ണ നയം →</a></p>
+
+<h2>ബന്ധപ്പെടുക</h2>
+<p>ഇമെയിൽ: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>
+MZN Digital, Kerala, India</p>
+</div>
+
+<!-- ── ARABIC ── -->
+<div class="section rtl" id="sec-ar">
+<h2>ماذا يفعل التطبيق</h2>
+<p>Guardian X تطبيق أمان شخصي للطوارئ. ضغطة واحدة — أو هزة واحدة — ترسل موقعك GPS لجهات الاتصال، تتصل بهم، وتشغّل الصفارة. لا حساب مطلوب. يعمل بدون إنترنت. في 168+ دولة.</p>
+
+<h2>المميزات الرئيسية</h2>
+<ul>
+  <li><strong>SOS بضغطة واحدة</strong> — اتصال، GPS بالرسائل، صفارة وفلاش</li>
+  <li><strong>هز الهاتف لـ SOS</strong> — هزّ 3 مرات حتى مع قفل الشاشة</li>
+  <li><strong>مفتاح الرجل الميت</strong> — ضبط مؤقت؛ إذا فاتك تسجيل الدخول، SOS يطلق تلقائياً</li>
+  <li><strong>وضع السفر</strong> — حدد وقت الوصول؛ إذا لم تؤكد، SOS يطلق</li>
+  <li><strong>مكالمة وهمية</strong> — للخروج من مواقف محرجة</li>
+  <li><strong>البوصلة</strong> — المسافة والاتجاه لكل جهة اتصال</li>
+  <li><strong>وضع التمويه</strong> — التطبيق يبدو كدفتر ملاحظات</li>
+  <li><strong>SOS مورس</strong> — إشارة SOS بالفلاش بدون شبكة</li>
+  <li><strong>الملاحة دون إنترنت</strong> — بوصلة توجيه بدون إنترنت</li>
+</ul>
+
+<h2>الخطط</h2>
+<div class="plan"><h3>مجاني</h3><p>SOS، 3 جهات اتصال، جميع المميزات الأساسية</p></div>
+<div class="plan"><h3>بلا إعلانات <span class="price">₹49</span></h3><p>إزالة جميع الإعلانات. فتح جهتا الاتصال 2 & 3.</p></div>
+<div class="plan"><h3>Safety Pro <span class="price">₹249</span></h3><p>5 جهات، مكالمات وهمية غير محدودة، صفارة مخصصة.</p></div>
+<div class="plan"><h3>Ultra Pro <span class="price">₹499</span></h3><p>كل شيء + تتبع متبادل مباشر.</p></div>
+
+<h2>الخصوصية</h2>
+<p>لا حساب. لا خادم. يذهب الموقع مباشرة لجهات اتصالك عبر الرسائل. <a href="privacy.html">سياسة الخصوصية الكاملة →</a></p>
+
+<h2>التواصل</h2>
+<p>البريد: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>
+MZN Digital، كيرالا، الهند</p>
+</div>
+
+<div class="foot" style="text-align:center;font-size:10px;opacity:.3;padding:24px 0 8px">
+  Guardian X · <a href="privacy.html" style="color:inherit">Privacy</a>
+</div>
+
+<script>
+const heroSubs={en:'Your always-on personal safety guardian',
+  hi:'आपका हमेशा तैयार व्यक्तिगत सुरक्षा साथी',
+  ml:'നിങ്ങളുടെ സ്ഥിരം തയ്യാറായ വ്യക്തിഗത സുരക്ഷ',
+  ar:'حارسك الشخصي للأمان على مدار الساعة'};
+
+function setLang(lang){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+lang).classList.add('active');
+  event.target.classList.add('active');
+  document.getElementById('hero-sub').textContent=heroSubs[lang];
+  document.documentElement.lang=lang;
+}
+// Auto-detect browser language
+const bl=navigator.language.slice(0,2);
+if(['hi','ml','ar'].includes(bl)){
+  document.querySelector('.lang-btn.active').classList.remove('active');
+  document.querySelector('.section.active').classList.remove('active');
+  document.getElementById('sec-'+bl).classList.add('active');
+  document.querySelector(`[onclick="setLang('${bl}')"]`).classList.add('active');
+  document.getElementById('hero-sub').textContent=heroSubs[bl];
+}
+</script>
 </body>
 </html>

@@ -5,65 +5,157 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Guardian X — Privacy Policy</title>
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:#0A0F1E;color:#ddd;max-width:680px;margin:0 auto;padding:24px 16px 48px;
-    line-height:1.7;font-size:15px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Noto Sans Arabic,sans-serif;
+    background:#0A0F1E;color:#ddd;max-width:680px;margin:0 auto;
+    padding:24px 16px 48px;line-height:1.75;font-size:15px}
   h1{color:#fff;font-size:22px;margin-bottom:4px}
-  h2{color:#4FC3F7;font-size:15px;font-weight:700;margin:24px 0 8px;
+  h2{color:#4FC3F7;font-size:13px;font-weight:700;margin:22px 0 8px;
     letter-spacing:.5px;text-transform:uppercase}
   p,li{color:#bbb;margin-bottom:8px}
   ul{padding-left:20px}
-  a{color:#4FC3F7}
-  .updated{font-size:12px;color:#555;margin-bottom:24px}
+  a{color:#4FC3F7;text-decoration:none}
+  .updated{font-size:12px;color:#555;margin-bottom:16px}
   .badge{background:#1B5E20;color:#A5D6A7;border-radius:4px;
-    padding:2px 8px;font-size:12px;font-weight:700;display:inline-block;margin-bottom:16px}
+    padding:2px 8px;font-size:12px;font-weight:700;
+    display:inline-block;margin-bottom:16px}
+  .lang-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+  .lang-btn{background:#0D1B2A;border:1px solid #1A3050;border-radius:20px;
+    color:#aaa;font-size:12px;padding:5px 14px;cursor:pointer;transition:all .15s}
+  .lang-btn.active{background:#1565C0;border-color:#1565C0;color:#fff;font-weight:700}
+  .rtl{direction:rtl;text-align:right}
+  .rtl ul{padding-right:20px;padding-left:0}
+  .section{display:none}.section.active{display:block}
 </style>
 </head>
 <body>
-<h1>Privacy Policy</h1>
+<h1>🔐 Privacy Policy</h1>
 <div class="updated">Last updated: April 2026</div>
-<div class="badge">Privacy First — Zero Data Collection</div>
+<div class="badge">Zero Data Collection</div>
 
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('hi')">हिन्दी</button>
+  <button class="lang-btn" onclick="setLang('ml')">മലയാളം</button>
+  <button class="lang-btn" onclick="setLang('ar')">العربية</button>
+</div>
+
+<!-- ENGLISH -->
+<div class="section active" id="sec-en">
 <h2>What We Collect</h2>
-<p>Guardian X collects <strong>nothing on our servers</strong>. We have no user accounts, no analytics servers, and no database of user information.</p>
-
+<p>Guardian X collects <strong>nothing on our servers</strong>. No user accounts, no analytics database, no personal information.</p>
 <h2>Location Data</h2>
-<p>Your GPS location is used only when you trigger an SOS. It is sent directly from your phone to your chosen emergency contacts via SMS. It is never sent to Anthropic, MZN Digital, or any third-party server.</p>
-<p>When you use Live Mutual Tracking (Ultra Pro), your location is temporarily stored in a private GitHub Gist (a file associated with your GitHub token). This Gist is automatically deleted when you tap STOP. Only your emergency contacts who have the Gist link can see this data.</p>
-
-<h2>Contact Information</h2>
-<p>Emergency contact names and phone numbers are stored only on your device in app storage. They are never uploaded anywhere.</p>
-
-<h2>SMS Messages</h2>
-<p>SOS messages are sent directly by your phone's SMS system. We do not read, store, or have access to your SMS messages.</p>
-
+<p>GPS is used only when you trigger an SOS. It is sent directly from your phone to your emergency contacts by SMS — never to our servers. Live Tracking (Ultra Pro) stores your location temporarily in a private GitHub Gist that is automatically deleted when you tap STOP.</p>
+<h2>Contacts & SMS</h2>
+<p>Contact names and numbers are stored only on your device. SMS messages are sent by your phone's own SMS system — we never see them.</p>
 <h2>Crash Reporting</h2>
-<p>We use Firebase Crashlytics to collect anonymous crash reports. This includes device model, Android version, app version, and the stack trace at the time of a crash. No personal information, location, or contact data is included in crash reports. You can opt out by disabling analytics in your device's Google settings.</p>
-
+<p>We use Firebase Crashlytics for anonymous crash reports (device model, Android version, stack trace). No personal data is included.</p>
 <h2>Advertising</h2>
-<p>The free version of Guardian X displays ads via Google AdMob. AdMob may collect device identifiers for ad personalisation as described in Google's privacy policy. Purchasing any paid plan removes all ads permanently.</p>
-
-<h2>In-App Purchases</h2>
-<p>Purchases are processed by Google Play. We do not receive or store your payment information.</p>
-
-<h2>Permissions Explained</h2>
+<p>Free version shows Google AdMob ads. Purchasing any paid plan removes all ads permanently.</p>
+<h2>Permissions</h2>
 <ul>
-  <li><strong>Location</strong> — to include GPS coordinates in SOS messages</li>
-  <li><strong>SMS</strong> — to send emergency alerts to your contacts</li>
-  <li><strong>Contacts</strong> — to let you pick contacts from your phone book</li>
-  <li><strong>Phone</strong> — to call your emergency contact when SOS triggers</li>
-  <li><strong>Camera</strong> — for the flash strobe SOS signal</li>
-  <li><strong>Notifications</strong> — for Dead Man's Switch and Travel Mode alerts</li>
+  <li><strong>Location</strong> — GPS in SOS messages</li>
+  <li><strong>SMS</strong> — send emergency alerts</li>
+  <li><strong>Contacts</strong> — pick from phone book</li>
+  <li><strong>Phone</strong> — call emergency contact on SOS</li>
+  <li><strong>Camera</strong> — flash strobe signal</li>
+  <li><strong>Notifications</strong> — Dead Man's Switch and Travel Mode alerts</li>
 </ul>
-
-<h2>Children's Privacy</h2>
-<p>Guardian X is not directed at children under 13. We do not knowingly collect data from children.</p>
-
-<h2>Changes</h2>
-<p>We may update this policy. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
-
 <h2>Contact</h2>
-<p>Questions: <a href="mailto:support@mzndigital.com">support@mzndigital.com</a><br>
-Developer: MZN Digital, Kerala, India</p>
+<p>Email: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>
+MZN Digital, Kerala, India</p>
+</div>
+
+<!-- HINDI -->
+<div class="section" id="sec-hi">
+<h2>हम क्या इकट्ठा करते हैं</h2>
+<p>Guardian X हमारे सर्वर पर <strong>कुछ भी नहीं</strong> रखता। कोई अकाउंट नहीं, कोई डेटाबेस नहीं।</p>
+<h2>लोकेशन डेटा</h2>
+<p>GPS केवल SOS के समय उपयोग होता है। यह सीधे आपके फोन से आपके संपर्कों को SMS द्वारा भेजा जाता है — कभी हमारे सर्वर को नहीं। लाइव ट्रैकिंग (Ultra Pro) में लोकेशन एक निजी GitHub Gist में अस्थायी रूप से रखी जाती है जो STOP दबाते ही हट जाती है।</p>
+<h2>संपर्क और SMS</h2>
+<p>संपर्क नाम और नंबर केवल आपके फोन में रहते हैं। SMS आपके फोन का अपना सिस्टम भेजता है।</p>
+<h2>क्रैश रिपोर्ट</h2>
+<p>हम Firebase Crashlytics का उपयोग करते हैं — गुमनाम क्रैश रिपोर्ट के लिए। कोई व्यक्तिगत जानकारी शामिल नहीं।</p>
+<h2>विज्ञापन</h2>
+<p>निःशुल्क संस्करण में Google AdMob विज्ञापन हैं। कोई भी भुगतान योजना खरीदने पर सभी विज्ञापन हमेशा के लिए हटते हैं।</p>
+<h2>अनुमतियां</h2>
+<ul>
+  <li><strong>लोकेशन</strong> — SOS में GPS</li>
+  <li><strong>SMS</strong> — आपातकालीन अलर्ट</li>
+  <li><strong>संपर्क</strong> — फोनबुक से चुनने के लिए</li>
+  <li><strong>फोन</strong> — SOS पर कॉल</li>
+  <li><strong>कैमरा</strong> — फ्लैश SOS सिग्नल</li>
+  <li><strong>सूचनाएं</strong> — Dead Man's Switch और Travel Mode</li>
+</ul>
+<h2>संपर्क</h2>
+<p>ईमेल: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>MZN Digital, Kerala, India</p>
+</div>
+
+<!-- MALAYALAM -->
+<div class="section" id="sec-ml">
+<h2>ഞങ്ങൾ ശേഖരിക്കുന്നത്</h2>
+<p>Guardian X ഞങ്ങളുടെ സർവറിൽ <strong>ഒന്നും ശേഖരിക്കുന്നില്ല</strong>. അക്കൗണ്ട് ഇല്ല, ഡേറ്റാബേസ് ഇല്ല.</p>
+<h2>ലൊക്കേഷൻ ഡേറ്റ</h2>
+<p>GPS ഉപയോഗിക്കുന്നത് SOS ട്രിഗർ ചെയ്യുമ്പോൾ മാത്രം. ഇത് നേരിട്ട് നിങ്ങളുടെ ഫോണിൽ നിന്ന് SMS ആയി കോൺടാക്ടുകൾക്ക് അയക്കുന്നു — ഞങ്ങളുടെ സർവറിലേക്ക് ഒരിക്കലും അല്ല. ലൈവ് ട്രാക്കിങ് (Ultra Pro) ഒരു പ്രൈവറ്റ് GitHub Gist-ൽ താൽക്കാലികമായി സൂക്ഷിക്കുന്നു — STOP അമർത്തുമ്പോൾ ഡിലീറ്റ് ആകുന്നു.</p>
+<h2>കോൺടാക്ടുകൾ & SMS</h2>
+<p>കോൺടാക്ട് പേരുകളും നമ്പറുകളും ഫോണിൽ മാത്രം. SMS ഫോണിന്റെ സ്വന്തം സിസ്റ്റം അയക്കുന്നു.</p>
+<h2>ക്രാഷ് റിപ്പോർട്ടിംഗ്</h2>
+<p>Firebase Crashlytics — അജ്ഞാത ക്രാഷ് റിപ്പോർട്ടുകൾ. വ്യക്തിഗത ഡേറ്റ ഇല്ല.</p>
+<h2>പരസ്യം</h2>
+<p>ഫ്രീ വേർഷനിൽ Google AdMob പരസ്യങ്ങൾ. ഏതെങ്കിലും പ്ലാൻ വാങ്ങിയാൽ എല്ലാ പരസ്യങ്ങളും സ്ഥിരമായി ഒഴിവാകുന്നു.</p>
+<h2>അനുമതികൾ</h2>
+<ul>
+  <li><strong>ലൊക്കേഷൻ</strong> — SOS-ൽ GPS</li>
+  <li><strong>SMS</strong> — അടിയന്തിര അലർട്ട്</li>
+  <li><strong>കോൺടാക്ടുകൾ</strong> — ഫോൺ ബുക്കിൽ നിന്ന് തിരഞ്ഞെടുക്കാൻ</li>
+  <li><strong>ഫോൺ</strong> — SOS-ൽ കോൾ</li>
+  <li><strong>ക്യാമറ</strong> — ഫ്ലാഷ് SOS</li>
+  <li><strong>നോട്ടിഫിക്കേഷൻ</strong> — Dead Man's Switch, Travel Mode</li>
+</ul>
+<h2>ബന്ധപ്പെടുക</h2>
+<p>ഇമെയിൽ: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>MZN Digital, Kerala, India</p>
+</div>
+
+<!-- ARABIC -->
+<div class="section rtl" id="sec-ar">
+<h2>ما نجمعه</h2>
+<p>Guardian X <strong>لا يجمع شيئاً</strong> على خوادمنا. لا حسابات، لا قاعدة بيانات.</p>
+<h2>بيانات الموقع</h2>
+<p>يُستخدم GPS فقط عند تشغيل SOS. يُرسل مباشرة من هاتفك إلى جهات اتصالك عبر الرسائل — ولا يصل أبداً لخوادمنا. التتبع المباشر (Ultra Pro) يخزن الموقع مؤقتاً في GitHub Gist خاص يُحذف تلقائياً عند الضغط على إيقاف.</p>
+<h2>جهات الاتصال والرسائل</h2>
+<p>الأسماء والأرقام تُخزَّن على هاتفك فقط. الرسائل يرسلها نظام هاتفك مباشرةً.</p>
+<h2>تقارير الأعطال</h2>
+<p>نستخدم Firebase Crashlytics لتقارير مجهولة. لا تتضمن بيانات شخصية.</p>
+<h2>الإعلانات</h2>
+<p>النسخة المجانية تعرض إعلانات Google AdMob. شراء أي خطة يزيل الإعلانات نهائياً.</p>
+<h2>الأذونات</h2>
+<ul>
+  <li><strong>الموقع</strong> — GPS في رسائل SOS</li>
+  <li><strong>الرسائل</strong> — إرسال التنبيهات</li>
+  <li><strong>جهات الاتصال</strong> — الاختيار من دفتر الهاتف</li>
+  <li><strong>الهاتف</strong> — الاتصال عند SOS</li>
+  <li><strong>الكاميرا</strong> — إشارة الفلاش</li>
+  <li><strong>الإشعارات</strong> — Dead Man's Switch ووضع السفر</li>
+</ul>
+<h2>التواصل</h2>
+<p>البريد: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>MZN Digital، كيرالا، الهند</p>
+</div>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+lang).classList.add('active');
+  event.target.classList.add('active');
+  document.documentElement.lang=lang;
+}
+const bl=navigator.language.slice(0,2);
+if(['hi','ml','ar'].includes(bl)){
+  document.querySelector('.lang-btn.active').classList.remove('active');
+  document.querySelector('.section.active').classList.remove('active');
+  document.getElementById('sec-'+bl).classList.add('active');
+  document.querySelector(`[onclick="setLang('${bl}')"]`).classList.add('active');
+}
+</script>
 </body>
 </html>

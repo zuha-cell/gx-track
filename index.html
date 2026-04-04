@@ -169,7 +169,8 @@
     <div class="title">📍 Add yourself to the live map</div>
     <input type="text" id="h-name"  placeholder="Your name (e.g. Priya)" maxlength="30"/>
     <input type="tel"  id="h-phone" placeholder="Your phone number"       maxlength="15"/>
-    <button class="btn bshare" onclick="shareLocation()">📤 Join the Map</button>
+    <button class="btn bshare" onclick="shareLocation()">📍 Share My Location & Join Map</button>
+    <p style="font-size:12px;color:#aaa;margin:4px 0 0">Your browser will ask for location permission — tap Allow</p>
   </div>
 
   <!-- Primary action buttons -->
@@ -177,7 +178,7 @@
     📞 Call <span id="b-name">Now</span>
   </button>
   <div class="btn-row">
-    <button class="btn bshare" onclick="doShare()">📤 Send My Location</button>
+    <button class="btn bshare" onclick="doShare()">📍 Send My Location to Victim</button>
     <button class="btn bcome"  onclick="doComing()">🚗 I Am Coming</button>
   </div>
   <button class="btn bmap" onclick="openGoogleMaps()">🗺 Open in Google Maps</button>
@@ -415,8 +416,8 @@ function shareLocation() {
       ) : null)
       .catch(() => showErr('Could not join map. Try again.'));
 
-  }, () => showErr('Please allow location access to join the map.'),
-    { enableHighAccuracy: true, timeout: 10000 });
+  }, err => showErr(err.code===1 ? 'Tap Allow when your browser asks for location, then tap Join again.' : 'GPS unavailable — go outdoors and try again.'),
+    { enableHighAccuracy: true, timeout: 12000 });
 }
 
 function refreshHelperPos(helperId, fname) {
@@ -515,8 +516,8 @@ function getMyLocation(cb) {
   if (myLat) { cb(); return; }
   navigator.geolocation?.getCurrentPosition(
     p => { myLat=p.coords.latitude; myLng=p.coords.longitude; cb(); },
-    () => showErr('Allow location access and try again.'),
-    { enableHighAccuracy:true, timeout:8000 }
+    err => showErr(err.code===1 ? 'Tap Allow in the location permission popup, then tap Share again.' : 'Could not get GPS. Go outdoors and try again.'),
+    { enableHighAccuracy:true, timeout:12000 }
   );
 }
 

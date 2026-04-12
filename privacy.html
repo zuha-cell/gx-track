@@ -1,161 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guardian X — Privacy Policy</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Noto Sans Arabic,sans-serif;
-    background:#0A0F1E;color:#ddd;max-width:680px;margin:0 auto;
-    padding:24px 16px 48px;line-height:1.75;font-size:15px}
-  h1{color:#fff;font-size:22px;margin-bottom:4px}
-  h2{color:#4FC3F7;font-size:13px;font-weight:700;margin:22px 0 8px;
-    letter-spacing:.5px;text-transform:uppercase}
-  p,li{color:#bbb;margin-bottom:8px}
-  ul{padding-left:20px}
-  a{color:#4FC3F7;text-decoration:none}
-  .updated{font-size:12px;color:#555;margin-bottom:16px}
-  .badge{background:#1B5E20;color:#A5D6A7;border-radius:4px;
-    padding:2px 8px;font-size:12px;font-weight:700;
-    display:inline-block;margin-bottom:16px}
-  .lang-bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
-  .lang-btn{background:#0D1B2A;border:1px solid #1A3050;border-radius:20px;
-    color:#aaa;font-size:12px;padding:5px 14px;cursor:pointer;transition:all .15s}
-  .lang-btn.active{background:#1565C0;border-color:#1565C0;color:#fff;font-weight:700}
-  .rtl{direction:rtl;text-align:right}
-  .rtl ul{padding-right:20px;padding-left:0}
-  .section{display:none}.section.active{display:block}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0a0f1e;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.7;padding:20px;}
+.wrap{max-width:720px;margin:0 auto;}
+h1{font-size:24px;font-weight:900;color:#FFB300;margin-bottom:4px;}
+.subtitle{color:rgba(255,255,255,.5);font-size:13px;margin-bottom:28px;}
+h2{font-size:16px;font-weight:800;color:#4FC3F7;margin:24px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.08);}
+p,li{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:8px;}
+ul{padding-left:20px;margin-bottom:12px;}
+.badge{display:inline-block;background:rgba(239,83,80,.15);border:1px solid rgba(239,83,80,.3);color:#EF5350;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:6px;}
+.card{background:#0d1b2a;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;margin-bottom:12px;}
+a{color:#4FC3F7;}
 </style>
 </head>
-<body>
-<h1>🔐 Privacy Policy</h1>
-<div class="updated">Last updated: April 2026</div>
-<div class="badge">Zero Data Collection</div>
+<body><div class="wrap">
 
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')">English</button>
-  <button class="lang-btn" onclick="setLang('hi')">हिन्दी</button>
-  <button class="lang-btn" onclick="setLang('ml')">മലയാളം</button>
-  <button class="lang-btn" onclick="setLang('ar')">العربية</button>
+<h1>Privacy Policy — Guardian X</h1>
+<div class="subtitle">Last updated: April 2026 | mzndigit0l@gmail.com</div>
+
+<h2>1. Who we are</h2>
+<p>Guardian X is developed and operated by <strong>mzndigital</strong>. Contact: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a></p>
+
+<h2>2. What data we collect and why</h2>
+<div class="card">
+  <p><strong>Location (GPS)</strong> — collected only when you trigger SOS, use Safe Zone, or start Guardian X Live sharing. Sent to your nominated emergency contacts. Never stored on our servers. Not collected in background except when Safe Zone geofencing is active.</p>
+</div>
+<div class="card">
+  <p><strong>Emergency contacts</strong> — names and phone numbers you enter. Stored only on your device. Never uploaded to our servers.</p>
+</div>
+<div class="card">
+  <p><strong>Device identifiers</strong> — your Android ID is used to generate a unique referral code. It is stored locally on your device and never transmitted to our servers.</p>
+</div>
+<div class="card">
+  <p><strong>Usage data</strong> — Firebase Crashlytics collects crash reports (no personally identifiable information). Firebase Analytics collects anonymous usage events (screen views, feature usage). You can opt out in Settings → Privacy.</p>
+</div>
+<div class="card">
+  <p><strong>SOS tracking sessions</strong> — when you trigger SOS with live tracking enabled, your location is temporarily written to a GitHub Gist under the app's GitHub token. The Gist is deleted when the SOS session ends. No data is retained after the session.</p>
 </div>
 
-<!-- ENGLISH -->
-<div class="section active" id="sec-en">
-<h2>What We Collect</h2>
-<p>Guardian X collects <strong>nothing on our servers</strong>. No user accounts, no analytics database, no personal information.</p>
-<h2>Location Data</h2>
-<p>GPS is used only when you trigger an SOS. It is sent directly from your phone to your emergency contacts by SMS — never to our servers. Live Tracking (Ultra Pro) stores your location temporarily in a private GitHub Gist that is automatically deleted when you tap STOP.</p>
-<h2>Contacts & SMS</h2>
-<p>Contact names and numbers are stored only on your device. SMS messages are sent by your phone's own SMS system — we never see them.</p>
-<h2>Crash Reporting</h2>
-<p>We use Firebase Crashlytics for anonymous crash reports (device model, Android version, stack trace). No personal data is included.</p>
-<h2>Advertising</h2>
-<p>Free version shows Google AdMob ads. Purchasing any paid plan removes all ads permanently.</p>
-<h2>Permissions</h2>
+<h2>3. Data we do NOT collect</h2>
 <ul>
-  <li><strong>Location</strong> — GPS in SOS messages</li>
-  <li><strong>SMS</strong> — send emergency alerts</li>
-  <li><strong>Contacts</strong> — pick from phone book</li>
-  <li><strong>Phone</strong> — call emergency contact on SOS</li>
-  <li><strong>Camera</strong> — flash strobe signal</li>
-  <li><strong>Notifications</strong> — Dead Man's Switch and Travel Mode alerts</li>
+  <li>We do not collect your name, email, or account information unless you voluntarily submit the beta feedback form</li>
+  <li>We do not record calls, SMS content, or microphone audio</li>
+  <li>We do not track your location continuously — only during active SOS or Live Sharing sessions</li>
+  <li>We do not sell any data to third parties</li>
 </ul>
-<h2>Contact</h2>
-<p>Email: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>
-MZN Digital, Kerala, India</p>
-</div>
 
-<!-- HINDI -->
-<div class="section" id="sec-hi">
-<h2>हम क्या इकट्ठा करते हैं</h2>
-<p>Guardian X हमारे सर्वर पर <strong>कुछ भी नहीं</strong> रखता। कोई अकाउंट नहीं, कोई डेटाबेस नहीं।</p>
-<h2>लोकेशन डेटा</h2>
-<p>GPS केवल SOS के समय उपयोग होता है। यह सीधे आपके फोन से आपके संपर्कों को SMS द्वारा भेजा जाता है — कभी हमारे सर्वर को नहीं। लाइव ट्रैकिंग (Ultra Pro) में लोकेशन एक निजी GitHub Gist में अस्थायी रूप से रखी जाती है जो STOP दबाते ही हट जाती है।</p>
-<h2>संपर्क और SMS</h2>
-<p>संपर्क नाम और नंबर केवल आपके फोन में रहते हैं। SMS आपके फोन का अपना सिस्टम भेजता है।</p>
-<h2>क्रैश रिपोर्ट</h2>
-<p>हम Firebase Crashlytics का उपयोग करते हैं — गुमनाम क्रैश रिपोर्ट के लिए। कोई व्यक्तिगत जानकारी शामिल नहीं।</p>
-<h2>विज्ञापन</h2>
-<p>निःशुल्क संस्करण में Google AdMob विज्ञापन हैं। कोई भी भुगतान योजना खरीदने पर सभी विज्ञापन हमेशा के लिए हटते हैं।</p>
-<h2>अनुमतियां</h2>
+<h2>4. Third-party services</h2>
 <ul>
-  <li><strong>लोकेशन</strong> — SOS में GPS</li>
-  <li><strong>SMS</strong> — आपातकालीन अलर्ट</li>
-  <li><strong>संपर्क</strong> — फोनबुक से चुनने के लिए</li>
-  <li><strong>फोन</strong> — SOS पर कॉल</li>
-  <li><strong>कैमरा</strong> — फ्लैश SOS सिग्नल</li>
-  <li><strong>सूचनाएं</strong> — Dead Man's Switch और Travel Mode</li>
+  <li><strong>Google Play Billing</strong> — handles all payment processing. We never see your payment card details.</li>
+  <li><strong>Google AdMob</strong> — shows ads to free users. AdMob may use device advertising IDs for ad personalisation. You can reset or opt out of this in your device settings.</li>
+  <li><strong>Firebase (Google)</strong> — crash reporting and anonymous analytics.</li>
+  <li><strong>GitHub Gists API</strong> — temporary storage for SOS live tracking sessions only.</li>
+  <li><strong>OpenStreetMap / Nominatim</strong> — map tiles and address search. Your IP address is visible to OSM's tile servers when the map loads.</li>
+  <li><strong>Cloudflare Workers</strong> — serves version update checks. No personal data is sent.</li>
 </ul>
-<h2>संपर्क</h2>
-<p>ईमेल: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>MZN Digital, Kerala, India</p>
-</div>
 
-<!-- MALAYALAM -->
-<div class="section" id="sec-ml">
-<h2>ഞങ്ങൾ ശേഖരിക്കുന്നത്</h2>
-<p>Guardian X ഞങ്ങളുടെ സർവറിൽ <strong>ഒന്നും ശേഖരിക്കുന്നില്ല</strong>. അക്കൗണ്ട് ഇല്ല, ഡേറ്റാബേസ് ഇല്ല.</p>
-<h2>ലൊക്കേഷൻ ഡേറ്റ</h2>
-<p>GPS ഉപയോഗിക്കുന്നത് SOS ട്രിഗർ ചെയ്യുമ്പോൾ മാത്രം. ഇത് നേരിട്ട് നിങ്ങളുടെ ഫോണിൽ നിന്ന് SMS ആയി കോൺടാക്ടുകൾക്ക് അയക്കുന്നു — ഞങ്ങളുടെ സർവറിലേക്ക് ഒരിക്കലും അല്ല. ലൈവ് ട്രാക്കിങ് (Ultra Pro) ഒരു പ്രൈവറ്റ് GitHub Gist-ൽ താൽക്കാലികമായി സൂക്ഷിക്കുന്നു — STOP അമർത്തുമ്പോൾ ഡിലീറ്റ് ആകുന്നു.</p>
-<h2>കോൺടാക്ടുകൾ & SMS</h2>
-<p>കോൺടാക്ട് പേരുകളും നമ്പറുകളും ഫോണിൽ മാത്രം. SMS ഫോണിന്റെ സ്വന്തം സിസ്റ്റം അയക്കുന്നു.</p>
-<h2>ക്രാഷ് റിപ്പോർട്ടിംഗ്</h2>
-<p>Firebase Crashlytics — അജ്ഞാത ക്രാഷ് റിപ്പോർട്ടുകൾ. വ്യക്തിഗത ഡേറ്റ ഇല്ല.</p>
-<h2>പരസ്യം</h2>
-<p>ഫ്രീ വേർഷനിൽ Google AdMob പരസ്യങ്ങൾ. ഏതെങ്കിലും പ്ലാൻ വാങ്ങിയാൽ എല്ലാ പരസ്യങ്ങളും സ്ഥിരമായി ഒഴിവാകുന്നു.</p>
-<h2>അനുമതികൾ</h2>
+<h2>5. Permissions and why we need them</h2>
 <ul>
-  <li><strong>ലൊക്കേഷൻ</strong> — SOS-ൽ GPS</li>
-  <li><strong>SMS</strong> — അടിയന്തിര അലർട്ട്</li>
-  <li><strong>കോൺടാക്ടുകൾ</strong> — ഫോൺ ബുക്കിൽ നിന്ന് തിരഞ്ഞെടുക്കാൻ</li>
-  <li><strong>ഫോൺ</strong> — SOS-ൽ കോൾ</li>
-  <li><strong>ക്യാമറ</strong> — ഫ്ലാഷ് SOS</li>
-  <li><strong>നോട്ടിഫിക്കേഷൻ</strong> — Dead Man's Switch, Travel Mode</li>
+  <li><strong>Location (fine + background)</strong> — SOS GPS, Safe Zone geofencing, live tracking</li>
+  <li><strong>Send SMS</strong> — emergency alerts to your contacts</li>
+  <li><strong>Call phone</strong> — auto-dial emergency contact on SOS</li>
+  <li><strong>Camera</strong> — SOS flash/torch signal</li>
+  <li><strong>Microphone</strong> — audio for fake call feature</li>
+  <li><strong>Read contacts</strong> — contact picker when adding emergency contacts</li>
+  <li><strong>Receive boot completed</strong> — restart background services after reboot</li>
+  <li><strong>Notifications</strong> — check-in alerts, safe zone breach, permission nudges</li>
 </ul>
-<h2>ബന്ധപ്പെടുക</h2>
-<p>ഇമെയിൽ: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>MZN Digital, Kerala, India</p>
-</div>
 
-<!-- ARABIC -->
-<div class="section rtl" id="sec-ar">
-<h2>ما نجمعه</h2>
-<p>Guardian X <strong>لا يجمع شيئاً</strong> على خوادمنا. لا حسابات، لا قاعدة بيانات.</p>
-<h2>بيانات الموقع</h2>
-<p>يُستخدم GPS فقط عند تشغيل SOS. يُرسل مباشرة من هاتفك إلى جهات اتصالك عبر الرسائل — ولا يصل أبداً لخوادمنا. التتبع المباشر (Ultra Pro) يخزن الموقع مؤقتاً في GitHub Gist خاص يُحذف تلقائياً عند الضغط على إيقاف.</p>
-<h2>جهات الاتصال والرسائل</h2>
-<p>الأسماء والأرقام تُخزَّن على هاتفك فقط. الرسائل يرسلها نظام هاتفك مباشرةً.</p>
-<h2>تقارير الأعطال</h2>
-<p>نستخدم Firebase Crashlytics لتقارير مجهولة. لا تتضمن بيانات شخصية.</p>
-<h2>الإعلانات</h2>
-<p>النسخة المجانية تعرض إعلانات Google AdMob. شراء أي خطة يزيل الإعلانات نهائياً.</p>
-<h2>الأذونات</h2>
+<h2>6. Children's privacy</h2>
+<p>Guardian X is designed for adults (13+). We do not knowingly collect data from children under 13. If you believe a child under 13 has used the app, contact us at mzndigit0l@gmail.com.</p>
+
+<h2>7. EU users — GDPR rights <span class="badge">EU</span></h2>
+<p>If you are located in the European Union, you have the following rights under GDPR:</p>
 <ul>
-  <li><strong>الموقع</strong> — GPS في رسائل SOS</li>
-  <li><strong>الرسائل</strong> — إرسال التنبيهات</li>
-  <li><strong>جهات الاتصال</strong> — الاختيار من دفتر الهاتف</li>
-  <li><strong>الهاتف</strong> — الاتصال عند SOS</li>
-  <li><strong>الكاميرا</strong> — إشارة الفلاش</li>
-  <li><strong>الإشعارات</strong> — Dead Man's Switch ووضع السفر</li>
+  <li><strong>Right to access</strong> — request a copy of data we hold about you</li>
+  <li><strong>Right to erasure</strong> — request deletion of your data</li>
+  <li><strong>Right to portability</strong> — receive your data in a portable format</li>
+  <li><strong>Right to withdraw consent</strong> — at any time, for any consent-based processing</li>
+  <li><strong>Right to object</strong> — to processing for analytics purposes</li>
 </ul>
-<h2>التواصل</h2>
-<p>البريد: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a><br>MZN Digital، كيرالا، الهند</p>
-</div>
+<p>Since most data is stored only on your device, you can exercise most of these rights by simply uninstalling the app. For crash/analytics data held by Google Firebase, contact us at mzndigit0l@gmail.com and we will submit a deletion request to Google on your behalf.</p>
+<p><strong>Legal basis for processing:</strong> Legitimate interests (safety features), consent (analytics and ads), contract performance (subscription features).</p>
 
-<script>
-function setLang(lang){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('sec-'+lang).classList.add('active');
-  event.target.classList.add('active');
-  document.documentElement.lang=lang;
-}
-const bl=navigator.language.slice(0,2);
-if(['hi','ml','ar'].includes(bl)){
-  document.querySelector('.lang-btn.active').classList.remove('active');
-  document.querySelector('.section.active').classList.remove('active');
-  document.getElementById('sec-'+bl).classList.add('active');
-  document.querySelector(`[onclick="setLang('${bl}')"]`).classList.add('active');
-}
-</script>
-</body>
-</html>
+<h2>8. EU subscriptions — cancellation rights <span class="badge">EU</span></h2>
+<p>If you purchase a subscription from within the EU, you have a <strong>14-day right of withdrawal</strong> (cooling-off period) from the date of purchase, unless you have already used the premium features (in which case the right of withdrawal may be lost under digital content rules). To cancel, go to Google Play → Subscriptions → Guardian X → Cancel.</p>
+
+<h2>9. Brazil users <span class="badge">BR</span></h2>
+<p>We comply with the Lei Geral de Proteção de Dados (LGPD). The legal basis for processing is legitimate interest (safety features), consent (analytics), and contract performance (subscriptions). You have the right to access, correct, and delete your data by contacting mzndigit0l@gmail.com.</p>
+
+<h2>10. Data retention</h2>
+<ul>
+  <li>SOS tracking sessions: deleted immediately when session ends</li>
+  <li>Crash reports: retained by Firebase for 90 days</li>
+  <li>Analytics: aggregated, retained for 14 months (Google's default)</li>
+  <li>Device-side data: retained until you uninstall the app or clear app data</li>
+</ul>
+
+<h2>11. Security</h2>
+<p>Emergency contact data is stored in Android SharedPreferences on your device with standard Android security. We do not transmit contact data to any server. SOS location data is transmitted over HTTPS.</p>
+
+<h2>12. Changes to this policy</h2>
+<p>We may update this policy. When we do, we update the date above. Continued use of the app after changes constitutes acceptance.</p>
+
+<h2>13. Contact</h2>
+<p>For privacy questions, data requests, or complaints: <a href="mailto:mzndigit0l@gmail.com">mzndigit0l@gmail.com</a></p>
+<p>Response time: within 30 days.</p>
+
+<p style="margin-top:32px;color:rgba(255,255,255,.3);font-size:12px;">Guardian X · mzndigital · Version 2.0</p>
+</div></body></html>
